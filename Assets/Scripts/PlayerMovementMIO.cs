@@ -38,12 +38,14 @@ public class PlayerMovementMIO : MonoBehaviour
     private float _slidingSlowdownTimeInverse;
     private bool _isJumping= false;
     private  bool _isSliding = false;
+    private Zawardo zawardo;
     
     
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         _characterController = GetComponent<CharacterController>();
+        zawardo = GetComponentInChildren<Zawardo>();
         slideSlope = _characterController.slopeLimit;
         _slidingSlowdownTimeInverse = 1 / slideSlowdownTime;
     }
@@ -52,7 +54,7 @@ public class PlayerMovementMIO : MonoBehaviour
     {
         UpdateMoveVelocity();
         UpdateVerticalVelocity();
-        UpdateSlideVelocity();
+        // UpdateSlideVelocity();
         
         ApplyTotalVelocity();
         
@@ -61,7 +63,7 @@ public class PlayerMovementMIO : MonoBehaviour
         
     }
 
-    private void UpdateSlideVelocity()
+    /*private void UpdateSlideVelocity()
     {
         var maxSlideVelocity = Vector3.zero;
         RaycastHit hit;
@@ -106,7 +108,7 @@ public class PlayerMovementMIO : MonoBehaviour
         }
         
     }
-
+    */
     private void UpdateMoveVelocity()
     {
         
@@ -121,17 +123,22 @@ public class PlayerMovementMIO : MonoBehaviour
         
         _playerVelocity = input;
     }
-
+    
     private void ApplyTotalVelocity()
     {
         var totalVelocity = _playerVelocity +  _verticalVelocity * Vector3.up + _slideVelocity * _slideVelocityFactor;
-        _characterController.Move(totalVelocity * Time.deltaTime);
+        if (zawardo.isStoppingTime)
+        {
+            totalVelocity = Vector3.zero;
+        }
+        _characterController.Move(totalVelocity * Time.unscaledDeltaTime);
+        
     }
 
     private void UpdateRotation()
     {
         var mouseInput = Input.GetAxis("Mouse X");
-        transform.Rotate(0, mouseInput * rotationSpeed * Time.deltaTime, 0);
+        transform.Rotate(0, mouseInput * rotationSpeed * Time.unscaledDeltaTime, 0);
     }
 
     private void UpdateVerticalVelocity()
@@ -154,26 +161,31 @@ public class PlayerMovementMIO : MonoBehaviour
                 _isJumping = false;
             }
             
+            
             if (!_isJumping) // si no esta saltando se usa el muelle
             {
                 float displacement = desiredHeight - distance;
                 float springForce = displacement * springStrength;
                 float dampingForce = -_verticalVelocity * damping;
                 float totalForce = springForce + dampingForce;
-
-                _verticalVelocity += totalForce * Time.deltaTime;
+                _verticalVelocity += totalForce * Time.unscaledDeltaTime;
             }
             else //pero si si esta saltando entonces usa la gravedad
             {
-                
-                _verticalVelocity -= gravity * Time.deltaTime;
+                _verticalVelocity -= gravity * Time.unscaledDeltaTime;
             }
-
             Debug.DrawRay(transform.position, Vector3.down * distance, Color.maroon);
         }
         else //si ni siquiera llega a ver el rayo nada pues cae
         {
-            _verticalVelocity -= gravity * Time.deltaTime;
+            if (zawardo.isZawarding == false)
+            { 
+                _verticalVelocity -= gravity * Time.deltaTime;
+            }
+            else
+            {
+                _verticalVelocity -= gravity * Time.unscaledDeltaTime;
+            }
         }
     }
 }
