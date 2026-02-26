@@ -7,11 +7,12 @@ public class Zawardo : MonoBehaviour
 {
   [Header("GrowSpeed"), Range(0,10)]
   [SerializeField] private float scaleSpeed;
-  [Header("GrowSpeed"), Range(0,10)]
+  [Header("The World Power"), Range(0,10)]
   [SerializeField] private float theWorldPower;
   [SerializeField]  private float amplitude;
   [SerializeField] private KeyCode ZawardoKey;
   [SerializeField] private GameObject greyShader;
+  [SerializeField] private AudioClip ZawardoSound;
   
   public bool isStoppingTime = false;
   public bool isZawarding = false;
@@ -29,6 +30,7 @@ public class Zawardo : MonoBehaviour
     timer += Time.unscaledDeltaTime;
     if (Input.GetKeyDown(ZawardoKey) && !isStoppingTime && !isZawarding )
     {
+      AudioManager.instance.PlaySFX(ZawardoSound);
       isStoppingTime = true;
       timer = 0;
     }
@@ -41,7 +43,6 @@ public class Zawardo : MonoBehaviour
         greyShader.SetActive(false);
         isZawarding = false;
         isStoppingTime = false;
-        Time.timeScale = 1;
         timeStopTimer = 0;
       }
     }
@@ -53,7 +54,6 @@ public class Zawardo : MonoBehaviour
       if (transform.localScale.x >= amplitude-0.4f)
       {
         greyShader.SetActive(true);
-        Time.timeScale = 0.01f;
       }
       if (transform.localScale.x < 0)
       {

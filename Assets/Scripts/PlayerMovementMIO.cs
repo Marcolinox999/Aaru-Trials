@@ -131,14 +131,14 @@ public class PlayerMovementMIO : MonoBehaviour
         {
             totalVelocity = Vector3.zero;
         }
-        _characterController.Move(totalVelocity * Time.unscaledDeltaTime);
+        _characterController.Move(totalVelocity * Time.deltaTime);
         
     }
 
     private void UpdateRotation()
     {
         var mouseInput = Input.GetAxis("Mouse X");
-        transform.Rotate(0, mouseInput * rotationSpeed * Time.unscaledDeltaTime, 0);
+        transform.Rotate(0, mouseInput * rotationSpeed * Time.deltaTime, 0);
     }
 
     private void UpdateVerticalVelocity()
@@ -168,24 +168,17 @@ public class PlayerMovementMIO : MonoBehaviour
                 float springForce = displacement * springStrength;
                 float dampingForce = -_verticalVelocity * damping;
                 float totalForce = springForce + dampingForce;
-                _verticalVelocity += totalForce * Time.unscaledDeltaTime;
+                _verticalVelocity += totalForce * Time.deltaTime;
             }
             else //pero si si esta saltando entonces usa la gravedad
             {
-                _verticalVelocity -= gravity * Time.unscaledDeltaTime;
+                _verticalVelocity -= gravity * Time.deltaTime;
             }
             Debug.DrawRay(transform.position, Vector3.down * distance, Color.maroon);
         }
         else //si ni siquiera llega a ver el rayo nada pues cae
         {
-            if (zawardo.isZawarding == false)
-            { 
                 _verticalVelocity -= gravity * Time.deltaTime;
-            }
-            else
-            {
-                _verticalVelocity -= gravity * Time.unscaledDeltaTime;
-            }
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine.Animations;
 public class EnemyMovement : MonoBehaviour
 {
     private GameObject player;
+    private Zawardo zawardo;
     private Vector3 characterDirection;
     
     [Header("Movement")] 
@@ -41,6 +42,8 @@ public class EnemyMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         _characterController = GetComponent<CharacterController>();
         player = GameObject.FindGameObjectWithTag("Player");
+        zawardo = player.GetComponentInChildren<Zawardo>();
+        
     }
 
     private void Update()
@@ -59,7 +62,7 @@ public class EnemyMovement : MonoBehaviour
     private void ApplyTotalVelocity()
     {
         var totalVelocity = _playerVelocity +  _verticalVelocity * Vector3.up + _slideVelocity * _slideVelocityFactor;
-        _characterController.Move(new Vector3(characterDirection.x, _verticalVelocity ,characterDirection.z).normalized * (forwardSpeed * Time.deltaTime));
+        _characterController.Move(new Vector3(characterDirection.x, _verticalVelocity ,characterDirection.z).normalized * (forwardSpeed * Time.deltaTime * (zawardo.isZawarding == false ? 1 : 0)));
     }
 
     private void UpdateRotation()
