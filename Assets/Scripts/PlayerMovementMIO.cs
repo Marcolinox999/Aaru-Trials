@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovementMIO : MonoBehaviour
 {
+    private static readonly int Speed = Animator.StringToHash("Speed");
+
     [Header("Movement")] 
     [SerializeField] private float forwardSpeed;
     [SerializeField] private float sideSpeed;
@@ -25,6 +27,8 @@ public class PlayerMovementMIO : MonoBehaviour
     [SerializeField] private float springStrength;
     [SerializeField] private float damping;
     [SerializeField] private float raycastLength;
+    [Header("Animation")]
+    private Animator _animator;
     
     [SerializeField] private AnimationCurve slideSlowDownCurve = AnimationCurve.EaseInOut(0f,1f,1f,0f);
     
@@ -48,6 +52,7 @@ public class PlayerMovementMIO : MonoBehaviour
         zawardo = GetComponentInChildren<Zawardo>();
         slideSlope = _characterController.slopeLimit;
         _slidingSlowdownTimeInverse = 1 / slideSlowdownTime;
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -122,6 +127,7 @@ public class PlayerMovementMIO : MonoBehaviour
         input= new Vector3(input.x * sideSpeed, 0, input.z * forwardSpeed);
         
         _playerVelocity = input;
+        _animator.SetFloat("Speed",input.sqrMagnitude);
     }
     
     private void ApplyTotalVelocity()
