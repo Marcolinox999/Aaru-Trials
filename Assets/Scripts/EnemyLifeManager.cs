@@ -10,6 +10,7 @@ public class EnemyLifeManager : MonoBehaviour
     [Header("Life")]
     [SerializeField] float life;
     [SerializeField] Slider healthBar;
+    private Animator _animator;
     
     private Vector3 HitDirection;
 
@@ -17,6 +18,7 @@ public class EnemyLifeManager : MonoBehaviour
     {
         enemyLife = life;
         characterController = GetComponent<CharacterController>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -33,15 +35,17 @@ public class EnemyLifeManager : MonoBehaviour
        healthBar.value = enemyLife/life; 
        if (enemyLife <= 0)
        {
-           Destroy(gameObject);
+           _animator.SetTrigger("Dead");
+           //Destroy(gameObject);
        }
        characterController.Move(HitDirection * Time.deltaTime);
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Weapon"))
         {
+            _animator.SetTrigger("Hurt");
             TakeDamage(5);
             var HitPosition = other.gameObject.transform.position;
              HitDirection = gameObject.transform.position - HitPosition;

@@ -39,14 +39,18 @@ public class StickyProyectiles : MonoBehaviour
             enemy.TakeDamage(damage);
 
             // destroy projectile
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
         // make sure projectile sticks to surface
         rb.isKinematic = true;
 
         // make sure projectile moves with target
-        //transform.SetParent(collision.transform, true);
+        if (collision.gameObject.CompareTag("Enemy"))
+        { 
+            transform.SetParent(collision.transform, true);
+        }
+        
         
         
     }

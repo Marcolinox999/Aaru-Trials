@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProyectileLogic : MonoBehaviour
 {
@@ -8,9 +9,11 @@ public class ProyectileLogic : MonoBehaviour
     public Transform attackPoint;
     public GameObject objectToThrow;
 
-    [Header("Settings")]
+    [Header("Throwing Stuff")]
     public int totalThrows;
     public float throwCooldown;
+    [SerializeField]private Image cooldownFiller;
+    [SerializeField]private Text numberOfKnifes;
 
     [Header("Throwing")]
     public KeyCode throwKey = KeyCode.Mouse0;
@@ -30,12 +33,17 @@ public class ProyectileLogic : MonoBehaviour
         {
             Throw();
         }
+
+        if (!readyToThrow &&  totalThrows > 0)
+        {
+            cooldownFiller.fillAmount = Mathf.Lerp(cooldownFiller.fillAmount, 0, Time.deltaTime);
+        }
     }
 
     private void Throw()
     {
         readyToThrow = false;
-        GameObject projectile = Instantiate(objectToThrow, attackPoint.position,cam.rotation);
+        GameObject projectile = Instantiate(objectToThrow, attackPoint.position,transform.rotation);
         Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
         Vector3 forceDirection = transform.forward;
         RaycastHit hit;
@@ -46,6 +54,8 @@ public class ProyectileLogic : MonoBehaviour
         Vector3 forceToAdd = forceDirection * -throwForce + transform.up * throwUpwardForce;
         projectileRb.AddForce(forceToAdd, ForceMode.Impulse);
         totalThrows--;
+        numberOfKnifes.text ="X" + totalThrows;
+        cooldownFiller.fillAmount = 1;
         StartCoroutine(CoolDown());
         
     }
