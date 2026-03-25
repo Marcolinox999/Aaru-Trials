@@ -46,6 +46,7 @@ public class EnemyLifeManager : MonoBehaviour
         if (other.gameObject.CompareTag("Weapon"))
         {
             _animator.SetTrigger("Hurt");
+            Destroy(other);
             TakeDamage(5);
             var HitPosition = other.gameObject.transform.position;
              HitDirection = gameObject.transform.position - HitPosition;

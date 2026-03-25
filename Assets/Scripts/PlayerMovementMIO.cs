@@ -135,7 +135,7 @@ public class PlayerMovementMIO : MonoBehaviour
         var totalVelocity = _playerVelocity +  _verticalVelocity * Vector3.up + _slideVelocity * _slideVelocityFactor;
         if (zawardo.isStoppingTime)
         {
-            totalVelocity = Vector3.zero;
+            //totalVelocity = Vector3.zero;
         }
         _characterController.Move(totalVelocity * Time.deltaTime);
         
@@ -152,6 +152,7 @@ public class PlayerMovementMIO : MonoBehaviour
         //Slato de david pero sin lo del grounded
         if (Input.GetAxisRaw("Jump") > 0.5f && !_isJumping)
         {
+            _animator.SetTrigger("Jump");
             _isJumping = true;
             _verticalVelocity = jumpForce;
         }

@@ -8,6 +8,7 @@ public class ProyectileLogic : MonoBehaviour
     public Transform cam;
     public Transform attackPoint;
     public GameObject objectToThrow;
+    private Animator animator;
 
     [Header("Throwing Stuff")]
     public int totalThrows;
@@ -16,7 +17,7 @@ public class ProyectileLogic : MonoBehaviour
     [SerializeField]private Text numberOfKnifes;
 
     [Header("Throwing")]
-    public KeyCode throwKey = KeyCode.Mouse0;
+    public KeyCode throwKey = KeyCode.Mouse1;
     public float throwForce;
     public float throwUpwardForce;
 
@@ -25,6 +26,7 @@ public class ProyectileLogic : MonoBehaviour
     private void Start()
     {
         readyToThrow = true;
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -42,6 +44,7 @@ public class ProyectileLogic : MonoBehaviour
 
     private void Throw()
     {
+        animator.SetTrigger("Throw");
         readyToThrow = false;
         GameObject projectile = Instantiate(objectToThrow, attackPoint.position,transform.rotation);
         Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
