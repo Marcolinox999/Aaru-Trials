@@ -47,7 +47,7 @@ public class PlayerMovementMIO : MonoBehaviour
     
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         _characterController = GetComponent<CharacterController>();
         zawardo = GetComponentInChildren<Zawardo>();
         slideSlope = _characterController.slopeLimit;
