@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -12,6 +13,7 @@ public class EnemyLifeManager : MonoBehaviour
     [SerializeField] float life;
     [SerializeField] Slider healthBar;
     private Animator _animator;
+    [SerializeField] private GameObject destroyReference;
     
     private Vector3 HitDirection;
 
@@ -38,6 +40,7 @@ public class EnemyLifeManager : MonoBehaviour
        {
            _animator.SetTrigger("Dead");
            //Destroy(gameObject);
+           StartCoroutine(WaitForDeath());
        }
        characterController.Move(HitDirection * Time.deltaTime);
     }
@@ -49,5 +52,12 @@ public class EnemyLifeManager : MonoBehaviour
             _animator.SetTrigger("Hurt");
             TakeDamage(5);
         }
+    }
+
+
+    private IEnumerator WaitForDeath()
+    {
+        yield return new WaitForSecondsRealtime(1.2f);
+        Destroy(destroyReference);
     }
 }

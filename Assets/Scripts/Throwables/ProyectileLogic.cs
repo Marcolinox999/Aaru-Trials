@@ -60,9 +60,11 @@ public class ProyectileLogic : MonoBehaviour
         }
         Vector3 forceToAdd = forceDirection * -throwForce + transform.up * throwUpwardForce;
         projectileRb.AddForce(forceToAdd, ForceMode.Impulse);
+        /*
         totalThrows--;
         numberOfKnifes.text ="X" + totalThrows;
         cooldownFiller.fillAmount = 1;
+        */
         StartCoroutine(CoolDown());
         
     }
