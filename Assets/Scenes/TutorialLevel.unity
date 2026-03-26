@@ -1097,6 +1097,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6487095872981291180, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
+      propertyPath: life
+      value: 
+      objectReference: {fileID: 1331167321}
     - target: {fileID: 6497835345879430092, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
       propertyPath: m_Name
       value: Fantasma (2)
@@ -2112,11 +2116,11 @@ Transform:
   m_GameObject: {fileID: 294469513}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.529, y: -0.000011444092, z: 3.7399979}
+  m_LocalPosition: {x: 19.467499, y: -2.1274414, z: -91.585655}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 356089718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &302518984 stripped
 GameObject:
@@ -2184,6 +2188,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6487095872981291180, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
+      propertyPath: life
+      value: 
+      objectReference: {fileID: 1331167321}
     - target: {fileID: 6497835345879430092, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
       propertyPath: m_Name
       value: Fantasma (1)
@@ -2284,6 +2292,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 279758652}
     m_Modifications:
+    - target: {fileID: 4045442122248397371, guid: 2234411a8393e4440bab03e6e2ce973a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045442122248397371, guid: 2234411a8393e4440bab03e6e2ce973a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045442122248397371, guid: 2234411a8393e4440bab03e6e2ce973a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1837627018}
+    - target: {fileID: 4045442122248397371, guid: 2234411a8393e4440bab03e6e2ce973a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045442122248397371, guid: 2234411a8393e4440bab03e6e2ce973a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045442122248397371, guid: 2234411a8393e4440bab03e6e2ce973a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045442122248397371, guid: 2234411a8393e4440bab03e6e2ce973a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8734313124097341732, guid: 2234411a8393e4440bab03e6e2ce973a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 72.05289
@@ -2331,7 +2367,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8866263033556900288, guid: 2234411a8393e4440bab03e6e2ce973a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1837627018}
   m_SourcePrefab: {fileID: 100100000, guid: 2234411a8393e4440bab03e6e2ce973a, type: 3}
 --- !u!1 &338170180 stripped
 GameObject:
@@ -2557,6 +2596,8 @@ Transform:
   - {fileID: 1513182108}
   - {fileID: 1417001557}
   - {fileID: 62977869}
+  - {fileID: 1882403559}
+  - {fileID: 294469514}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &366755698
@@ -3209,6 +3250,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6487095872981291180, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
+      propertyPath: life
+      value: 
+      objectReference: {fileID: 1331167321}
     - target: {fileID: 6497835345879430092, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
       propertyPath: m_Name
       value: Fantasma (3)
@@ -10550,6 +10595,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 556df98b183ba8840b1345200723fc1a, type: 3}
+--- !u!1 &1290981986 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8866263033556900288, guid: 2234411a8393e4440bab03e6e2ce973a, type: 3}
+  m_PrefabInstance: {fileID: 338170179}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1295096167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12559,6 +12609,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6487095872981291180, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
+      propertyPath: life
+      value: 
+      objectReference: {fileID: 1331167321}
     - target: {fileID: 6497835345879430092, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
       propertyPath: m_Name
       value: Fantasma (7)
@@ -13838,6 +13892,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6487095872981291180, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
+      propertyPath: life
+      value: 
+      objectReference: {fileID: 1331167321}
     - target: {fileID: 6497835345879430092, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
       propertyPath: m_Name
       value: Fantasma (4)
@@ -15009,6 +15067,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8734313124097341732, guid: 2234411a8393e4440bab03e6e2ce973a, type: 3}
   m_PrefabInstance: {fileID: 338170179}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1837627018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290981986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f72b4dfc30cfa274e9fca5fe2e9698fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
 --- !u!1 &1839879075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6c8e31de0165bda4e8b93b488e7e6ed0, type: 3}
@@ -15271,11 +15341,11 @@ Transform:
   m_GameObject: {fileID: 1882403558}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 90.27, y: -0.000011444092, z: 3.7399979}
+  m_LocalPosition: {x: 80.208496, y: -2.1274414, z: -91.585655}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 356089718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1894870514
 PrefabInstance:
@@ -17019,6 +17089,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6487095872981291180, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
+      propertyPath: life
+      value: 
+      objectReference: {fileID: 1331167321}
     - target: {fileID: 6497835345879430092, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
       propertyPath: m_Name
       value: Fantasma (5)
@@ -17093,6 +17167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6487095872981291180, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
+      propertyPath: life
+      value: 
+      objectReference: {fileID: 1331167321}
     - target: {fileID: 6497835345879430092, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
       propertyPath: m_Name
       value: Fantasma (6)
@@ -17472,8 +17550,6 @@ SceneRoots:
   - {fileID: 836714311}
   - {fileID: 935756685}
   - {fileID: 187681404}
-  - {fileID: 1882403559}
-  - {fileID: 294469514}
   - {fileID: 356089718}
   - {fileID: 279758652}
   - {fileID: 1739374083}
