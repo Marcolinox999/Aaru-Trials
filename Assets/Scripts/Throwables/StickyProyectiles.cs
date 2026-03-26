@@ -7,7 +7,9 @@ public class StickyProyectiles : MonoBehaviour
     private bool targetHit;
     [Header("LifeSpawn")]
     private float timer = 0;
+    private bool alreadyHit = false;
     [SerializeField] private float timeToDie;
+    [SerializeField] private GameObject hitEffect;
     
     private void Start()
     {
@@ -30,7 +32,6 @@ public class StickyProyectiles : MonoBehaviour
             return;
         else
             targetHit = true;
-
         // check if you hit an enemy
         if(collision.gameObject.GetComponent<EnemyLifeManager>() != null)
         {
@@ -51,7 +52,7 @@ public class StickyProyectiles : MonoBehaviour
             transform.SetParent(collision.transform, true);
         }
         
-        
+        Destroy(hitEffect);
         
     }
 }

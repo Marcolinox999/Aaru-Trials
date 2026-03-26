@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7280706778407737395}
   m_Layer: 6
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 8700691329180737100}
   m_Layer: 6
   m_Name: Knife
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StickyProyectiles
   damage: 5
   timeToDie: 3
+  hitEffect: {fileID: 5860343171520519560}
 --- !u!1 &5860343171520519560
 GameObject:
   m_ObjectHideFlags: 0

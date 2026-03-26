@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 using Slider = UnityEngine.UI.Slider;
@@ -17,7 +18,7 @@ public class EnemyLifeManager : MonoBehaviour
     private void Start()
     {
         enemyLife = life;
-        characterController = GetComponent<CharacterController>();
+        characterController = GetComponentInParent<CharacterController>();
         _animator = GetComponentInChildren<Animator>();
     }
 
@@ -46,10 +47,7 @@ public class EnemyLifeManager : MonoBehaviour
         if (other.gameObject.CompareTag("Weapon"))
         {
             _animator.SetTrigger("Hurt");
-            Destroy(other);
             TakeDamage(5);
-            var HitPosition = other.gameObject.transform.position;
-             HitDirection = gameObject.transform.position - HitPosition;
         }
     }
 }

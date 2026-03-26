@@ -9,6 +9,7 @@ public class ProyectileLogic : MonoBehaviour
     public Transform attackPoint;
     public GameObject objectToThrow;
     private Animator animator;
+    private float timer;
 
     [Header("Throwing Stuff")]
     public int totalThrows;
@@ -31,6 +32,7 @@ public class ProyectileLogic : MonoBehaviour
 
     private void Update()
     {
+        
         if(Input.GetKeyDown(throwKey) && readyToThrow && totalThrows > 0)
         {
             Throw();
@@ -38,7 +40,9 @@ public class ProyectileLogic : MonoBehaviour
 
         if (!readyToThrow &&  totalThrows > 0)
         {
-            cooldownFiller.fillAmount = Mathf.Lerp(cooldownFiller.fillAmount, 0, Time.deltaTime);
+            timer -= Time.deltaTime;
+            cooldownFiller.fillAmount = timer / throwCooldown;
+            //cooldownFiller.fillAmount = Mathf.Lerp(cooldownFiller.fillAmount, 0, Time.deltaTime);
         }
     }
 
@@ -65,6 +69,7 @@ public class ProyectileLogic : MonoBehaviour
 
     IEnumerator CoolDown()
     {
+        timer = throwCooldown;
         yield return new WaitForSeconds(throwCooldown);
         readyToThrow = true;
     }

@@ -13,37 +13,40 @@ public class Zawardo : MonoBehaviour
   [SerializeField] private KeyCode ZawardoKey;
   [SerializeField] private GameObject greyShader;
   [SerializeField] private AudioClip ZawardoSound;
-  
+  [Header("References")]
+  [SerializeField] private Image zawardoFiller;
   public bool isStoppingTime = false;
   public bool isZawarding = false;
   private float timer;
+  private float cooldownTimer;
   private float timeStopTimer;
   
-
-  private void Start()
-  {
-    
-  }
-
   private void Update()
   {
-    timer += Time.unscaledDeltaTime;
+    timer += Time.deltaTime;
     if (Input.GetKeyDown(ZawardoKey) && !isStoppingTime && !isZawarding )
     {
       AudioManager.instance.PlaySFX(ZawardoSound);
       isStoppingTime = true;
       timer = 0;
+      cooldownTimer = theWorldPower;
     }
 
     if (isZawarding)
     {
-      timeStopTimer += Time.unscaledDeltaTime;
+      timeStopTimer += Time.deltaTime;
       if (timeStopTimer >= theWorldPower)
       {
         greyShader.SetActive(false);
         isZawarding = false;
         isStoppingTime = false;
         timeStopTimer = 0;
+        zawardoFiller.fillAmount = cooldownTimer /  theWorldPower;
+      }
+
+      if (cooldownTimer > 0)
+      {
+        cooldownTimer -= Time.deltaTime;
       }
     }
 
