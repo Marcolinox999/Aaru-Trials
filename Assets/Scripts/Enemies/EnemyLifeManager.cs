@@ -10,6 +10,7 @@ public class EnemyLifeManager : MonoBehaviour
     private float enemyLife = 100;
     private CharacterController characterController;
     [Header("Life")]
+    [SerializeField] ParticleSystem particle;
     [SerializeField] float life;
     [SerializeField] Slider healthBar;
     private Animator _animator;
@@ -22,6 +23,7 @@ public class EnemyLifeManager : MonoBehaviour
         enemyLife = life;
         characterController = GetComponentInParent<CharacterController>();
         _animator = GetComponentInChildren<Animator>();
+        particle = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Update()
@@ -42,6 +44,7 @@ public class EnemyLifeManager : MonoBehaviour
            //Destroy(gameObject);
            StartCoroutine(WaitForDeath());
        }
+       particle.Play();
        characterController.Move(HitDirection * Time.deltaTime);
     }
     
