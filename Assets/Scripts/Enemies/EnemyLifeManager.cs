@@ -8,7 +8,7 @@ using Slider = UnityEngine.UI.Slider;
 public class EnemyLifeManager : MonoBehaviour
 {
     private float enemyLife = 100;
-    private CharacterController characterController;
+    //private CharacterController characterController;
     [Header("Life")]
     [SerializeField] ParticleSystem particle;
     [SerializeField] float life;
@@ -21,7 +21,7 @@ public class EnemyLifeManager : MonoBehaviour
     private void Start()
     {
         enemyLife = life;
-        characterController = GetComponentInParent<CharacterController>();
+        //characterController = GetComponent<CharacterController>();
         _animator = GetComponentInChildren<Animator>();
         particle = GetComponentInChildren<ParticleSystem>();
     }
@@ -45,7 +45,7 @@ public class EnemyLifeManager : MonoBehaviour
            StartCoroutine(WaitForDeath());
        }
        particle.Play();
-       characterController.Move(HitDirection * Time.deltaTime);
+       //characterController.Move(HitDirection * Time.deltaTime);
     }
     
     private void OnTriggerEnter(Collider other)

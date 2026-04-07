@@ -1,5 +1,4 @@
-using System;
-using UnityEditor;
+
 using UnityEngine;
 
 public class PlayerMovementMIO : MonoBehaviour
@@ -47,12 +46,12 @@ public class PlayerMovementMIO : MonoBehaviour
     
     private void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
         _characterController = GetComponent<CharacterController>();
         zawardo = GetComponentInChildren<Zawardo>();
         slideSlope = _characterController.slopeLimit;
         _slidingSlowdownTimeInverse = 1 / slideSlowdownTime;
-        _animator = GetComponentInChildren<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
