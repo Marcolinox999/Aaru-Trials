@@ -114,12 +114,12 @@ public class Melee : MonoBehaviour
         animator.SetTrigger("Heavy");
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (hasHit) return;
         if (other.TryGetComponent(out _enemyLifeManager))
         {
-            _enemyLifeManager.TakeDamage(damage);
+            _enemyLifeManager.TakeDamage(actualDamage);
             hasHit = true;
         }
     }
