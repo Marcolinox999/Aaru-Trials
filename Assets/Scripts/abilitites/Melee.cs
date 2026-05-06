@@ -7,8 +7,9 @@ public class Melee : MonoBehaviour
     [Header("AttackKey")]
     [Tooltip("Tecla para pegar")]
     [SerializeField]private KeyCode key;
-    [Space(10)]
-    [Header("Attack Stats")]
+
+    [Space(10)] [Header("Attack Stats")] 
+    [SerializeField] private Vector3 meleeRange;
     [SerializeField] private float damage;
     [SerializeField] private float heavyDamage;
     private float actualDamage;
@@ -22,7 +23,6 @@ public class Melee : MonoBehaviour
     private bool isHolding;
     [Space(10)]
     [Header("References")]
-    [SerializeField]private Collider _collider;
     [SerializeField]private Animator animator;
     [SerializeField]private ParticleSystem simplePunchParticle;
     [SerializeField] private ParticleSystem chargeParticle;
@@ -84,7 +84,6 @@ public class Melee : MonoBehaviour
     {
         actualDamage =  damage;
         simplePunchParticle.Play();
-       _collider.enabled = true;
        StartCoroutine(TimeToDissolve());
        
        
@@ -93,19 +92,23 @@ public class Melee : MonoBehaviour
     {
         actualDamage =  heavyDamage;
         heavyPunchParticle.Play();
-        _collider.enabled = true;
         StartCoroutine(TimeToDissolve());
     }
 
     IEnumerator TimeToDissolve()
     {
-        hasHit = false;
-        _collider.enabled = true;
-
-        yield return new WaitForSeconds(0.3f);
-
-        _collider.enabled = false;
-        canAttack = true;
+        Collider[] objectsHitted;
+        objectsHitted =Physics.OverlapBox(transform.position, meleeRange, transform.rotation);
+        
+        foreach (Collider objectHitted in objectsHitted)
+        {
+            objectHitted.TryGetComponent(out _enemyLifeManager);
+            if (_enemyLifeManager)
+            {
+                _enemyLifeManager.TakeDamage(actualDamage, transform.position,1 );
+            }
+        }
+        yield return new WaitForSeconds(0.1f);
     }
         
     private void HeavyAttackAnimation()
@@ -113,14 +116,8 @@ public class Melee : MonoBehaviour
         actualCombo = 0;
         animator.SetTrigger("Heavy");
     }
-
-    private void OnTriggerStay(Collider other)
+    private void OnDrawGizmos()
     {
-        if (hasHit) return;
-        if (other.TryGetComponent(out _enemyLifeManager))
-        {
-            _enemyLifeManager.TakeDamage(actualDamage);
-            hasHit = true;
-        }
+        Gizmos.DrawCube(transform.position, meleeRange);
     }
 }

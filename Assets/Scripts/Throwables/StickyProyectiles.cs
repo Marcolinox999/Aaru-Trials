@@ -37,7 +37,7 @@ public class StickyProyectiles : MonoBehaviour
         {
             EnemyLifeManager enemy = collision.gameObject.GetComponent<EnemyLifeManager>();
 
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage,transform.position, 1);
 
             // destroy projectile
             //Destroy(gameObject);
