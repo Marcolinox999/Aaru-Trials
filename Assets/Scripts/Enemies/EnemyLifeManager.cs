@@ -19,6 +19,7 @@ public class EnemyLifeManager : MonoBehaviour
     private Rigidbody _rb;
     [SerializeField] private GameObject destroyReference;
     private bool canWalkAgain = false;
+    private bool canTakeDamage = true;
     private BasicEnemyMovement _basicEnemyMovement;
     
     private Vector3 HitDirection;
@@ -44,6 +45,8 @@ public class EnemyLifeManager : MonoBehaviour
 
     public void TakeDamage(float damage, Vector3 hitDirection, int polarization)
     {
+        if (!canTakeDamage) return;
+        canTakeDamage = false;
         _agent.enabled = false;
         hitDirection = (hitDirection-transform.position).normalized;
         _rb.freezeRotation = true;
@@ -54,11 +57,9 @@ public class EnemyLifeManager : MonoBehaviour
        if (enemyLife <= 0)
        {
            _animator.SetTrigger("Dead");
-           //Destroy(gameObject);
            StartCoroutine(WaitForDeath());
        }
        particle.Play();
-       //characterController.Move(HitDirection * Time.deltaTime);
     }
     
     private void OnTriggerEnter(Collider other)
@@ -85,6 +86,7 @@ public class EnemyLifeManager : MonoBehaviour
         Debug.Log("Stun");
         yield return new WaitForSecondsRealtime(1f);
         canWalkAgain = true;
+        canTakeDamage = true;
     }
 
     private void OnCollisionStay(Collision other)

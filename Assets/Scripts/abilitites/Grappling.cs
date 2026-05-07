@@ -19,7 +19,10 @@ public class Grappling : MonoBehaviour
     private bool isExtending;
 
     
-    
+    private bool isRetracting;
+    private GameObject currentReward;
+
+    [SerializeField] private float retractSpeed = 25f;
     
     [SerializeField] private KeyCode grapplingKey = KeyCode.LeftShift;
 
@@ -38,16 +41,22 @@ public class Grappling : MonoBehaviour
         }
         else if (Input.GetKeyUp(grapplingKey))
         {
-            StopGrapple();
+            if (!isRetracting)
+            {
+                StopGrapple();
+            }
         }
     }
 
     private void StopGrapple()
     {
-        
         lr.enabled = false;
+
         _target = null;
         grapplePoint = Vector3.zero;
+
+        isExtending = false;
+        isRetracting = false;
     }
 
     private void StartGrapple()
@@ -83,28 +92,69 @@ public class Grappling : MonoBehaviour
         if (isExtending)
         {
             ropeProgress += ropeSpeed * Time.deltaTime;
-            
-            Vector3 actualPoint =  Vector3.Lerp(startPoint, grapplePoint, ropeProgress);
-            
+            ropeProgress = Mathf.Clamp01(ropeProgress);
+
+            Vector3 ropeTip = Vector3.Lerp(startPoint, grapplePoint, ropeProgress);
+
             lr.SetPosition(0, startPoint);
-            lr.SetPosition(1, actualPoint);
+            lr.SetPosition(1, ropeTip);
 
             if (ropeProgress >= 1f)
             {
-                EnemyLifeManager enemyLifeManager;
                 isExtending = false;
-                enemyLifeManager = _target.GetComponent<EnemyLifeManager>();
-                if (enemyLifeManager != null)
+
+                if (_target != null)
                 {
-                    enemyLifeManager.TakeDamage(20,transform.position, -1);
-                    if (enemyLifeManager.enemyLife <= 0)
-                    { 
-                        GameObject thisReward = Instantiate(reward, transform.position, Quaternion.identity);
-                        thisReward.transform.parent = transform;
+                    EnemyLifeManager enemyLifeManager =
+                        _target.GetComponent<EnemyLifeManager>();
+
+                    if (enemyLifeManager != null)
+                    {
+                        enemyLifeManager.TakeDamage(20, transform.position, -1);
+
+                        if (enemyLifeManager.enemyLife <= 0)
+                        {
+                            currentReward = Instantiate(
+                                reward,
+                                ropeTip,
+                                Quaternion.identity
+                            );
+
+                            isRetracting = true;
+                        }
+                        else
+                        {
+                            StopGrapple();
+                        }
                     }
-                    
+                }
+                else
+                {
+                    StopGrapple();
+                }
+            }
+        }
+        else if (isRetracting)
+        {
+            ropeProgress -= retractSpeed * Time.deltaTime;
+            ropeProgress = Mathf.Clamp01(ropeProgress);
+
+            Vector3 ropeTip = Vector3.Lerp(startPoint, grapplePoint, ropeProgress);
+
+            lr.SetPosition(0, startPoint);
+            lr.SetPosition(1, ropeTip);
+            if (currentReward != null)
+            {
+                currentReward.transform.position = ropeTip;
+            }
+            if (ropeProgress <= 0f)
+            {
+                if (currentReward != null)
+                {
+                    currentReward.transform.parent = transform;
                 }
 
+                StopGrapple();
             }
         }
         else
