@@ -11,6 +11,8 @@ public class Grappling : MonoBehaviour
     private GameObject _target;
     [SerializeField]private Transform player;
     [SerializeField] private GameObject reward;
+    [Range(-1, 1)]
+    [SerializeField] private int polarization;
     
     [Header("Rope Stuff")]
     private float maxDistance = 30f;
@@ -110,7 +112,7 @@ public class Grappling : MonoBehaviour
 
                     if (enemyLifeManager != null)
                     {
-                        enemyLifeManager.TakeDamage(20, transform.position, -1);
+                        enemyLifeManager.TakeDamage(20, transform.position, polarization);
 
                         if (enemyLifeManager.enemyLife <= 0)
                         {
