@@ -3183,6 +3183,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5846048960185187959, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5145410466809458107, guid: 8dcca07c8b81f97428b082172107fdbe, type: 3}
     - target: {fileID: 8380441520959027139, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: cooldownFiller
       value: 
