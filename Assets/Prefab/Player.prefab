@@ -1636,9 +1636,45 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1036967873081412811, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5145410466809458107, guid: 8dcca07c8b81f97428b082172107fdbe, type: 3}
+    - target: {fileID: 1036967873081412811, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
+      propertyPath: m_Quality
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036967873081412811, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
+      propertyPath: m_RootBone
+      value: 
+      objectReference: {fileID: 1592083912114812337}
+    - target: {fileID: 1036967873081412811, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036967873081412811, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
+      propertyPath: m_RayTracingMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036967873081412811, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036967873081412811, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036967873081412811, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036967873081412811, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036967873081412811, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 354a3ddb122feb448ba397143385f80a, type: 2}
+      objectReference: {fileID: -876546973899608171, guid: 9bcf13014a73a3442b29be450c5a386a, type: 3}
     - target: {fileID: 1935467741635189334, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
       propertyPath: m_Layer
       value: 7
