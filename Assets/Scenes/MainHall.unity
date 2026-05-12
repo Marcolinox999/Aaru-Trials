@@ -1040,6 +1040,7 @@ GameObject:
   - component: {fileID: 226270188}
   - component: {fileID: 226270187}
   - component: {fileID: 226270186}
+  - component: {fileID: 226270190}
   m_Layer: 0
   m_Name: Trial3
   m_TagString: Trial3
@@ -1139,6 +1140,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1442709866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &226270190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226270185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecc23e46dde705448c7c27073f589bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TeleportScript
+  BlockPortal2: {fileID: 0}
+  BlockPortal3: {fileID: 0}
+  BlockPortalFinalBoss: {fileID: 0}
 --- !u!1001 &242009913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3408,6 +3424,7 @@ GameObject:
   - component: {fileID: 1127798792}
   - component: {fileID: 1127798791}
   - component: {fileID: 1127798790}
+  - component: {fileID: 1127798794}
   m_Layer: 0
   m_Name: FinalBoss
   m_TagString: FinalBoss
@@ -3507,6 +3524,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1442709866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1127798794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127798789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecc23e46dde705448c7c27073f589bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TeleportScript
+  BlockPortal2: {fileID: 0}
+  BlockPortal3: {fileID: 0}
+  BlockPortalFinalBoss: {fileID: 0}
 --- !u!1001 &1138799547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4558,7 +4590,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1442709866}
-  - component: {fileID: 1442709867}
   m_Layer: 0
   m_Name: RoomPortals
   m_TagString: Untagged
@@ -4585,21 +4616,6 @@ Transform:
   - {fileID: 1127798793}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1442709867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1442709865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecc23e46dde705448c7c27073f589bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TeleportScript
-  BlockPortal2: {fileID: 663886278}
-  BlockPortal3: {fileID: 1697562227}
-  BlockPortalFinalBoss: {fileID: 408902766}
 --- !u!1 &1453519612
 GameObject:
   m_ObjectHideFlags: 0
@@ -4612,6 +4628,7 @@ GameObject:
   - component: {fileID: 1453519615}
   - component: {fileID: 1453519614}
   - component: {fileID: 1453519613}
+  - component: {fileID: 1453519617}
   m_Layer: 0
   m_Name: Trial2
   m_TagString: Trial2
@@ -4711,6 +4728,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1442709866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1453519617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453519612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecc23e46dde705448c7c27073f589bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TeleportScript
+  BlockPortal2: {fileID: 0}
+  BlockPortal3: {fileID: 1697562227}
+  BlockPortalFinalBoss: {fileID: 0}
 --- !u!4 &1456287595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5216520479017541492, guid: 125f7efe8f91aff4abd37bd1d4e5970f, type: 3}
@@ -6038,9 +6070,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1861387554}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f392eac076c34d4294f9c53906ed544, type: 3}
+  m_Script: {fileID: 11500000, guid: fecc23e46dde705448c7c27073f589bb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::teleporter
+  m_EditorClassIdentifier: Assembly-CSharp::TeleportScript
+  BlockPortal2: {fileID: 663886278}
+  BlockPortal3: {fileID: 0}
+  BlockPortalFinalBoss: {fileID: 0}
 --- !u!4 &1868241466 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5216520479017541492, guid: 125f7efe8f91aff4abd37bd1d4e5970f, type: 3}
@@ -6411,15 +6446,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3568487676857778366, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3568487676857778366, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3568487676857778366, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8593241167815565540, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_AnchorMax.x
