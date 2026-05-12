@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleportScript
   BlockPortal2: {fileID: 0}
   BlockPortal3: {fileID: 0}
-  BlockPortalFinalBoss: {fileID: 0}
+  BlockPortalFinalBoss: {fileID: 408902766}
 --- !u!1001 &242009913
 PrefabInstance:
   m_ObjectHideFlags: 0
