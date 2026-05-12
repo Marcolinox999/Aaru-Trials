@@ -18,7 +18,7 @@ public class BasicEnemyMovement : MonoBehaviour
         zawardo = target.GetComponentInChildren<Zawardo>();
     }
 
-    private void Start()
+    public void Start()
     {
             StartCoroutine(Move());
     }
@@ -28,12 +28,14 @@ public class BasicEnemyMovement : MonoBehaviour
       WaitForSeconds wait = new WaitForSeconds(speedOfUpdate);
       while (enabled)
       {
-
-          agent.SetDestination(target.transform.position);
-          if (zawardo.isZawarding)
-            agent.isStopped = true;
-          else
-            agent.isStopped = false;
+          if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+          {
+              agent.SetDestination(target.transform.position);
+              if (zawardo.isZawarding)
+                  agent.isStopped = true;
+              else
+                  agent.isStopped = false;
+          }
           yield return wait;
       }
     }

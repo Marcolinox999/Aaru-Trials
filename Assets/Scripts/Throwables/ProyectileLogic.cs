@@ -27,7 +27,7 @@ public class ProyectileLogic : MonoBehaviour
     private void Start()
     {
         readyToThrow = true;
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
