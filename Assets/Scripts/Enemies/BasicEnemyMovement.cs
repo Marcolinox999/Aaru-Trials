@@ -9,10 +9,12 @@ public class BasicEnemyMovement : MonoBehaviour
     [SerializeField] private float speedOfUpdate;
     private NavMeshAgent agent;
     private Zawardo zawardo;
+    private EnemyLifeManager _enemyLifeManager;
 
 
     private void Awake()
     {
+        _enemyLifeManager = GetComponent<EnemyLifeManager>();
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
         zawardo = target.GetComponentInChildren<Zawardo>();
@@ -33,8 +35,12 @@ public class BasicEnemyMovement : MonoBehaviour
               agent.SetDestination(target.transform.position);
               if (zawardo.isZawarding)
                   agent.isStopped = true;
+              else if (_enemyLifeManager.isFrozen)
+                  agent.isStopped = true;
               else
+              {
                   agent.isStopped = false;
+              }
           }
           yield return wait;
       }

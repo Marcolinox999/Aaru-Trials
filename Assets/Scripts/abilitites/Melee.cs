@@ -14,6 +14,8 @@ public class Melee : MonoBehaviour
     [SerializeField] private float heavyDamage;
     private float actualDamage;
     [SerializeField] private float comboTime;
+    [Range(-1, 1)]
+    [SerializeField] private int polarization;
     private float actualComboTime;
     private int actualCombo;
     private bool hasHit;
@@ -26,6 +28,7 @@ public class Melee : MonoBehaviour
     [SerializeField]private Animator animator;
     [SerializeField]private ParticleSystem simplePunchParticle;
     [SerializeField] private ParticleSystem chargeParticle;
+    [SerializeField] private ParticleSystem readyParticle;
     [SerializeField]private ParticleSystem heavyPunchParticle;
     private EnemyLifeManager _enemyLifeManager;
 
@@ -47,8 +50,12 @@ public class Melee : MonoBehaviour
         if (isHolding && Input.GetKey(key))
         {
             holdTime += Time.deltaTime;
-            if ((holdTime >= holdThreshold)&& !chargeParticle.isPlaying)
+            if (!chargeParticle.isPlaying)
                 chargeParticle.Play();
+            if (holdTime >= holdThreshold && !readyParticle.isPlaying)
+            {
+                readyParticle.Play();
+            }
         }
         //3 phase
         if (Input.GetKeyUp(key) && canAttack)
@@ -105,7 +112,7 @@ public class Melee : MonoBehaviour
             objectHitted.TryGetComponent(out _enemyLifeManager);
             if (_enemyLifeManager)
             {
-                _enemyLifeManager.TakeDamage(actualDamage, transform.position,1 );
+                _enemyLifeManager.TakeDamage(actualDamage, transform.position,polarization );
             }
         }
         yield return new WaitForSeconds(0.1f);
