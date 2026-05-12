@@ -16,6 +16,8 @@ public class SpiningKopesh : MonoBehaviour
     public float throwCooldown;
     [SerializeField]private Image cooldownFiller;
     [SerializeField]private Text numberOfKnifes;
+    [Range(-1, 1)]
+    [SerializeField] private int polarization;
 
     [Header("Throwing")]
     public KeyCode throwKey = KeyCode.Mouse1;
