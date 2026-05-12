@@ -3,6 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class TeleportScript : MonoBehaviour
 {
+    [SerializeField] private GameObject BlockPortal2;
+    [SerializeField] private GameObject BlockPortal3;
+    [SerializeField] private GameObject BlockPortalFinalBoss;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && gameObject.CompareTag("Trial1"))

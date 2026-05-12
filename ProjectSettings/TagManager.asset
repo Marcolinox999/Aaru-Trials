@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Weapon
   - Enemy
+  - Trial1
+  - Trial2
+  - Trial3
+  - FinalBoss
   layers:
   - Default
   - TransparentFX
