@@ -20,11 +20,16 @@ public class EnemyLifeManager : MonoBehaviour
     [SerializeField] private GameObject destroyReference;
     [SerializeField] private Material stunMaterial;
     [SerializeField] private Material freezeMaterial;
+    [SerializeField] private Material poisonedMaterial;
+    [SerializeField] private ParticleSystem freezeParticle;
+    [SerializeField] private ParticleSystem poisonedParticle;
+
     private Material _defaultMaterial;
     private Renderer _renderer;
     private bool canWalkAgain = false;
     private bool canTakeDamage = true;
     public bool isFrozen = false;
+    public bool isPoisoned = false;
     private float freezeTimer = 0;
     private BasicEnemyMovement _basicEnemyMovement;
     
@@ -48,6 +53,22 @@ public class EnemyLifeManager : MonoBehaviour
         {
             //TakeDamage(5);
         }
+        UpdateMaterial();
+    }
+    private void UpdateMaterial()
+    {
+        if (isFrozen)
+        {
+            _renderer.material = freezeMaterial;
+        }
+        else if (isPoisoned)
+        {
+            _renderer.material = poisonedMaterial;
+        }
+        else
+        {
+            _renderer.material = _defaultMaterial;
+        }
     }
     public void TakeDamage(float damage, Vector3 hitDirection, int polarization)
     {
@@ -56,6 +77,7 @@ public class EnemyLifeManager : MonoBehaviour
         {
             damage *= 2;
             isFrozen = false;
+            freezeParticle.Stop();
             _renderer.material = _defaultMaterial;
         }
         canTakeDamage = false;
@@ -64,7 +86,7 @@ public class EnemyLifeManager : MonoBehaviour
         Vector3 dir = hitDirection - transform.position;
         dir = Vector3.ProjectOnPlane(dir, Vector3.up).normalized;
         _rb.freezeRotation = true;
-        _rb.AddForce(new Vector3(dir.x * damage * polarization, 5f, dir.z * damage * polarization), ForceMode.Impulse);
+        _rb.AddForce(new Vector3(dir.x * damage * polarization,damage/2, dir.z * damage * polarization), ForceMode.Impulse);
         StartCoroutine(Stun());
         enemyLife  -= damage;
        healthBar.value = enemyLife/life; 
@@ -84,28 +106,40 @@ public class EnemyLifeManager : MonoBehaviour
 
     private IEnumerator Stun()
     {
-        _renderer.material = stunMaterial;
         Debug.Log("Stun");
         yield return new WaitForSecondsRealtime(0.2f);
         canTakeDamage = true;
-        _renderer.material = _defaultMaterial;
         yield return new WaitForSecondsRealtime(0.8f);
         canWalkAgain = true;
     }
-    public IEnumerator Freeze(float freezeDuration)
+    public IEnumerator Freeze()
     {
         if (isFrozen) yield break;
         isFrozen = true;
-        _agent.isStopped = true;
         _agent.velocity = Vector3.zero;
-        _renderer.material = freezeMaterial;
+        freezeParticle.Play();
         Debug.Log("Freeze");
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(2);
         Debug.Log("UnFreeze");
-        _agent.isStopped = false;
         isFrozen = false;
-        _renderer.material = _defaultMaterial;
+        freezeParticle.Stop();
         freezeTimer = 0;
+    }
+    public IEnumerator Poisoned()
+    {
+        if (isPoisoned) yield break;
+        isPoisoned = true;
+        poisonedParticle.Play();
+        Debug.Log("Venom");
+        for (int i = 0; i < 5; i++)
+        {
+            TakeDamage(10, Vector3.zero, 0);
+            yield return new WaitForSecondsRealtime(1f);
+        }
+        //yield return new WaitForSecondsRealtime(2);
+        Debug.Log("noVenom");
+        isPoisoned = false;
+        poisonedParticle.Stop();
     }
 
     private void OnCollisionStay(Collision other)

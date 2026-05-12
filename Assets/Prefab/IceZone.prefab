@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IceParticleDamage
   freezeSlowmo: 5
-  freezeRadius: 7
+  freezeRadius: 9
   freezeDuration: 5
   slowZone: {fileID: 3192701114733949470}
   slowTime: 5

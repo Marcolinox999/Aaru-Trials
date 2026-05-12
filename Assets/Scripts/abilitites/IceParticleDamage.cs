@@ -25,7 +25,7 @@ public class IceParticleDamage : MonoBehaviour
 
                 if (enemy != null)
                 {
-                    StartCoroutine(enemy.Freeze(freezeDuration));
+                    StartCoroutine(enemy.Freeze());
                     Debug.Log(hit.name + "and freeze");
                 }
             }
