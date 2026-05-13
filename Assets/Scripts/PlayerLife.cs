@@ -18,6 +18,6 @@ public class PlayerLife : MonoBehaviour
     public void TakeDamage(float damage)
     {
         life -= damage;
-        lifebar.value = life / 100;
+        lifebar.value = life;
     }
 }

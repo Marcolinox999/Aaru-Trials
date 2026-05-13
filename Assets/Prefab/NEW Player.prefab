@@ -1226,6 +1226,55 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &5433638247860303168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 714108864821460863}
+  - component: {fileID: 2920711491708520836}
+  m_Layer: 0
+  m_Name: RockLaunch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &714108864821460863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5433638247860303168}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 553058386181545921}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2920711491708520836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5433638247860303168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81b40bc727b7a842b487e1979407fce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RockLaunch
+  rockLaunchKey: 118
+  rockReference: {fileID: 3029644284016795592, guid: c28e03a64b4e6754382e86b187dddc42, type: 3}
+  rockLaunchPoint: {fileID: 4417513408029759088}
+  player: {fileID: 2142296327986448920}
+  coolDown: 3
 --- !u!1 &5446705701732007021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,6 +1320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4913034900500157527}
+  - component: {fileID: 1353128119382970721}
   m_Layer: 0
   m_Name: VenomLauncher
   m_TagString: Untagged
@@ -1293,6 +1343,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 553058386181545921}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1353128119382970721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5529460371381337855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d675f770aa21ad2459ad9c57d00b344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VenomLauncher
+  VenomKey: 110
+  coolDown: 5
+  venom: {fileID: 2532673601240506604, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
 --- !u!1 &5947195265672365949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,6 +1887,7 @@ Transform:
   - {fileID: 5694135180579036869}
   - {fileID: 1989043577236816475}
   - {fileID: 4913034900500157527}
+  - {fileID: 714108864821460863}
   m_Father: {fileID: 2317806238297699839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8306847382801303332
@@ -7540,13 +7606,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1036967873081412811, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5145410466809458107, guid: 8dcca07c8b81f97428b082172107fdbe, type: 3}
+    - target: {fileID: 1036967873081412811, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 6399583434089354583}
     - target: {fileID: 1036967873081412811, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 354a3ddb122feb448ba397143385f80a, type: 2}
+      objectReference: {fileID: 2100000, guid: e8b808c8c81316b47be6e5dc3db31f7c, type: 2}
     - target: {fileID: 1935467741635189334, guid: bc759b2d7e73e1b478a7bdc2b0ec43cb, type: 3}
       propertyPath: m_Layer
       value: 7
