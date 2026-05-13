@@ -429,6 +429,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &292333978 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 553058386181545921, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+  m_PrefabInstance: {fileID: 4381350289638046599}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &472037458
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +632,60 @@ Transform:
   - {fileID: 1005800285}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &570953474 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4417513408029759088, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+  m_PrefabInstance: {fileID: 4381350289638046599}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &610094930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 610094931}
+  - component: {fileID: 610094932}
+  m_Layer: 0
+  m_Name: RockLaunch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &610094931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610094930}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 292333978}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &610094932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610094930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81b40bc727b7a842b487e1979407fce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RockLaunch
+  rockLaunchKey: 118
+  rockReference: {fileID: 3029644284016795592, guid: c28e03a64b4e6754382e86b187dddc42, type: 3}
+  rockLaunchPoint: {fileID: 570953474}
+  player: {fileID: 1700329311}
+  coolDown: 3
 --- !u!198 &622627577 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5534818817328638873, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
@@ -2667,6 +2726,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1700329311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2142296327986448920, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+  m_PrefabInstance: {fileID: 4381350289638046599}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1758399228 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5529460371381337855, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
@@ -3011,63 +3075,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 109223493}
   m_LocalEulerAnglesHint: {x: 23.06, y: 90, z: 0}
---- !u!1001 &1379871791488398618
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2027925664377049758, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.0761
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027925664377049758, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027925664377049758, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.65829
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027925664377049758, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027925664377049758, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027925664377049758, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027925664377049758, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027925664377049758, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027925664377049758, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027925664377049758, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2532673601240506604, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
-      propertyPath: m_Name
-      value: VenomBall
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
 --- !u!1001 &4381350289638046599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3142,7 +3149,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 553058386181545921, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 610094931}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5529460371381337855, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       insertIndex: -1
@@ -3307,4 +3317,3 @@ SceneRoots:
   - {fileID: 8612359141837466065}
   - {fileID: 971374177}
   - {fileID: 8465959070667870348}
-  - {fileID: 1379871791488398618}

@@ -30,6 +30,7 @@ public class EnemyLifeManager : MonoBehaviour
     private bool canTakeDamage = true;
     public bool isFrozen = false;
     public bool isPoisoned = false;
+    public bool isStunned = false;
     private float freezeTimer = 0;
     private BasicEnemyMovement _basicEnemyMovement;
     
@@ -64,6 +65,10 @@ public class EnemyLifeManager : MonoBehaviour
         else if (isPoisoned)
         {
             _renderer.material = poisonedMaterial;
+        }
+        else if (isStunned)
+        {
+            _renderer.material = stunMaterial;
         }
         else
         {
@@ -107,7 +112,9 @@ public class EnemyLifeManager : MonoBehaviour
     private IEnumerator Stun()
     {
         Debug.Log("Stun");
+        isStunned = true;
         yield return new WaitForSecondsRealtime(0.2f);
+        isStunned = false;
         canTakeDamage = true;
         yield return new WaitForSecondsRealtime(0.8f);
         canWalkAgain = true;

@@ -121,7 +121,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1229397643471286386}
   - component: {fileID: 3595550902891544980}
-  - component: {fileID: 8773404233678518509}
+  - component: {fileID: 4645298941087636108}
+  - component: {fileID: 6438186389659300855}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -139,7 +140,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3636, y: 0.3636, z: 0.3636}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8337670796981930075}
@@ -173,7 +174,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8773404233678518509
+--- !u!114 &4645298941087636108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,11 +183,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 3029644284016795592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dfc57d79923d67409a74cf88aa8356f, type: 3}
+  m_Script: {fileID: 11500000, guid: ad2198dcb160e2341abd0480ee23a186, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StickyProyectiles
-  damage: 5
-  timeToDie: 5
+  m_EditorClassIdentifier: Assembly-CSharp::BasicThrow
+  _rigidBody: {fileID: 0}
+--- !u!135 &6438186389659300855
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3029644284016795592}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8467735209607946686
 GameObject:
   m_ObjectHideFlags: 0
