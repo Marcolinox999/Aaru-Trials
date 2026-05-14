@@ -258,7 +258,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc82afe6214a05541818c2d1369e6177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttacks
+  animator: {fileID: 0}
   life: {fileID: 0}
+  isAttacking: 0
+  _collider: {fileID: 0}
 --- !u!65 &2562889522796454091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -549,6 +552,7 @@ GameObject:
   - component: {fileID: 8075646783474931635}
   - component: {fileID: 1988359233861927538}
   - component: {fileID: 1383180083664375308}
+  - component: {fileID: 581822643463446537}
   m_Layer: 9
   m_Name: Fantasma
   m_TagString: Enemy
@@ -657,8 +661,10 @@ MonoBehaviour:
   poisonedMaterial: {fileID: 2100000, guid: e6d4cde9a505cec49b45a7217a614648, type: 2}
   freezeParticle: {fileID: 4681006083713081447}
   poisonedParticle: {fileID: 5534818817328638873}
+  attackMaterial: {fileID: 2100000, guid: 0291469ade5170947a632d1a72e7b061, type: 2}
   isFrozen: 0
   isPoisoned: 0
+  isStunned: 0
 --- !u!54 &1383180083664375308
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -686,6 +692,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &581822643463446537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6497835345879430092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc82afe6214a05541818c2d1369e6177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttacks
+  animator: {fileID: 1371717318939345900}
+  life: {fileID: 0}
+  isAttacking: 0
+  _collider: {fileID: 5719927299678182502}
 --- !u!1 &8977682789938329700
 GameObject:
   m_ObjectHideFlags: 0

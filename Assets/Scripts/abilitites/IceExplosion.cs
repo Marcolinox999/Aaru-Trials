@@ -15,6 +15,7 @@ public class IceExplosion : MonoBehaviour
     [SerializeField] float cooldown;
     private bool isOnCooldown = false;
     private float _timer;
+    [SerializeField]private Animator animator;
 
 
     private void Update()
@@ -29,8 +30,12 @@ public class IceExplosion : MonoBehaviour
 
         if (Input.GetKeyDown(key)&& !isOnCooldown)
         {
-                Instantiate(iceParticles, transform.position, Quaternion.identity);
-                isOnCooldown = true;
+            //AQUI
+            animator.Play("IceExplosion");
+            
+            
+            Instantiate(iceParticles, transform.position, Quaternion.identity);
+            isOnCooldown = true;
         }
     }
 }

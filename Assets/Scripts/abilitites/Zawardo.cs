@@ -20,6 +20,7 @@ public class Zawardo : MonoBehaviour
   private float timer;
   private float cooldownTimer;
   private float timeStopTimer;
+  [SerializeField]private Animator animator;
   
   private void Update()
   {
@@ -27,6 +28,8 @@ public class Zawardo : MonoBehaviour
     if (Input.GetKeyDown(ZawardoKey) && !isStoppingTime && !isZawarding )
     {
       AudioManager.instance.PlaySFX(ZawardoSound);
+      //AQUI
+      animator.Play("Zawardo");
       isStoppingTime = true;
       timer = 0;
       cooldownTimer = theWorldPower;

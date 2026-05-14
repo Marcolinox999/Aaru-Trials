@@ -66,53 +66,6 @@ public class PlayerMovementMIO : MonoBehaviour
         UpdateRotation();
         
     }
-
-    /*private void UpdateSlideVelocity()
-    {
-        var maxSlideVelocity = Vector3.zero;
-        RaycastHit hit;
-        if (_characterController.isGrounded && Physics.SphereCast(transform.position + _characterController.center,
-                _characterController.radius, Vector3.down, out hit))
-        {
-            var angle = Vector3.Angle(hit.normal, Vector3.up);
-            print(angle); // pa debugear
-
-            if (angle > slideSlope)
-            {
-                _isSliding = true;
-
-                var slideDirection = Vector3.ProjectOnPlane(Vector3.down, hit.normal).normalized;
-                maxSlideVelocity = slideDirection * slideSpeed;
-                
-                Debug.DrawRay(hit.point, hit.normal, Color.red, 3f);
-                Debug.DrawRay(hit.point, slideDirection, Color.green, 3f);
-            }
-            else
-            {
-              _isSliding = false;
-              _slidingTime = 0;
-            }
-
-            if (_isSliding)
-            {
-                _slidingTime += Time.deltaTime;
-            }
-
-            _slideVelocity = _isSliding
-                ?
-                Vector3.Lerp(_slideVelocity, maxSlideVelocity, Time.deltaTime * slideRampUpFactor)
-                :
-                Vector3.Lerp(_slideVelocity, Vector3.zero, Time.deltaTime * slideRampDownFactor);
-            
-            _slideVelocityFactor = _isSliding 
-                ? 
-                slideSlowDownCurve.Evaluate(Mathf.Clamp01(_slidingTime * _slidingSlowdownTimeInverse)) 
-                :
-                Mathf.Lerp(_slideVelocityFactor,1, Time.deltaTime * slideFactorRecovery);
-        }
-        
-    }
-    */
     private void UpdateMoveVelocity()
     {
         

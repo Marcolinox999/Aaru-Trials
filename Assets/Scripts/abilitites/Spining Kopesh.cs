@@ -25,6 +25,7 @@ public class SpiningKopesh : MonoBehaviour
     public float throwUpwardForce;
 
     bool readyToThrow;
+    
 
     private void Start()
     {

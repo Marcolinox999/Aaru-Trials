@@ -8,6 +8,9 @@ public class SacredHerbs : MonoBehaviour
     [SerializeField] private float desiredTime;
     [SerializeField] private GameObject healing;
     private float timer;
+    [SerializeField]private Animator animator;
+    private bool isOnCooldown = false;
+    private float _timer;
 
     private void Start()
     {
@@ -16,9 +19,21 @@ public class SacredHerbs : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) && cooldown <= 0)
+        if (isOnCooldown)
+            _timer += Time.deltaTime;
+        if (_timer >= cooldown)
         {
+            isOnCooldown = false;
+            _timer = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.X) && !isOnCooldown)
+        {
+            //AQUI
+            animator.Play("SacredHerbs");
+            
             Instantiate(healing, transform.position, Quaternion.identity);
+            isOnCooldown = true;
+
         }
     }
 }
