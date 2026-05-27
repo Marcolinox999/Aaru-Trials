@@ -41,15 +41,13 @@ public class Anubis : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-            CurrentState = State.DROPING;
         switch (CurrentState)
         {
             case State.FOLLOWING:
                 FollowPlayer();
                 break;
             case State.DROPING:
-                Slaming();
+                Slamming();
                 break;
             case State.RISING:
                 Rising();
@@ -64,7 +62,7 @@ public class Anubis : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, desiredTarget, speed * Time.deltaTime);
     }
 
-    private void Slaming()
+    private void Slamming()
     {
         desiredTarget = new Vector3(transform.position.x, savedHit.point.y, transform.position.z);
 
@@ -86,7 +84,7 @@ public class Anubis : MonoBehaviour
     {
         if (LayerMask.LayerToName(collision.gameObject.layer) == "Floor")
         {
-            CurrentState = State.RISING;
+            StartCoroutine(WaitForRise());
         }
         else if (LayerMask.LayerToName(collision.gameObject.layer) == "Player")
         {
@@ -113,5 +111,11 @@ public class Anubis : MonoBehaviour
         yield return new WaitForSecondsRealtime(3f);
         cosmetics.transform.localScale = Vector3.one * 0.7f;
         abilities.SetActive(true);
+    }
+
+    private IEnumerator WaitForRise()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        CurrentState = State.RISING;
     }
 }
