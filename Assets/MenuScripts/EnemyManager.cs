@@ -5,9 +5,24 @@ using UnityEngine.SceneManagement;
 public class EnemyManager : MonoBehaviour
 {
     private List<GameObject> activeEnemies = new List<GameObject>();
+    public GameObject ui_Complete;
+    
+    public GameObject player;
+    public PlayerMovementMIO playerMovement;
+    public ProyectileLogic proyectileLogic;
+    public AnimatorManager animatorManager;
+    public GameObject[] canvas;
 
+    public bool stageCompleted;
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        canvas = GameObject.FindGameObjectsWithTag("Pause");
+        playerMovement = player.GetComponent<PlayerMovementMIO>();
+        proyectileLogic = player.GetComponent<ProyectileLogic>();
+        animatorManager =  player.GetComponent<AnimatorManager>();
+        
+        ui_Complete = GameObject.FindGameObjectWithTag("LevelComplete");
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         activeEnemies.AddRange(enemies);
     }
@@ -19,12 +34,12 @@ public class EnemyManager : MonoBehaviour
 
     void CheckEnemies()
     {
+        // If no enemies left, go back to main menu
         activeEnemies.RemoveAll(enemy => enemy == null);
 
-        // If no enemies left, go back to main menu
-        if (activeEnemies.Count == 0)
+        if (activeEnemies.Count <= 0)
         {
-            SceneManager.LoadScene("MainHall");
+            stageCompleted = true;
         }
     }
 }

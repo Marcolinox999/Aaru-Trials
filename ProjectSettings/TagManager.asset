@@ -11,6 +11,10 @@ TagManager:
   - Trial3
   - FinalBoss
   - Healing
+  - Pause
+  - SpawnPoint
+  - LevelComplete
+  - EnemyManager
   layers:
   - Default
   - TransparentFX
