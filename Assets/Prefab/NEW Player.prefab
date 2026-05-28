@@ -56,6 +56,7 @@ MonoBehaviour:
   throwKey: 122
   throwForce: -4
   throwUpwardForce: -1
+  spinSound: {fileID: 8300000, guid: 6597cc08d689b8a46b543351a0567ad0, type: 3}
 --- !u!1 &774097349478559688
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,10 +216,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SacredHerbs
   _playerMovement: {fileID: 0}
-  cooldown: 0
+  cooldown: 10
   desiredTime: 5
   healing: {fileID: 2782265564540374091, guid: fca0effa4240d7847a7d52d4eec21ff0, type: 3}
   animator: {fileID: 668108669199894210}
+  healSound:
+  - {fileID: 8300000, guid: 627a83284affaf046989de0b1240078e, type: 3}
+  - {fileID: 8300000, guid: d33b2896f25348944b7237e26f6935f6, type: 3}
+  - {fileID: 8300000, guid: 6ce4bb029ee487141b42cee3b0099ff0, type: 3}
 --- !u!1 &1787146621829307486
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +275,7 @@ MonoBehaviour:
   freezeTime: 2
   cooldown: 3
   animator: {fileID: 668108669199894210}
+  iceSound: {fileID: 8300000, guid: 52a8b121b1ced84489d6102b42b54a9c, type: 3}
 --- !u!1 &1835626848056375478
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +670,9 @@ MonoBehaviour:
   _materialDefault: {fileID: 0}
   _materialStun: {fileID: 2100000, guid: 03e30876fff35ce4193c7c8a3d1f91bd, type: 2}
   timeToStun: 0.3
+  hitSound:
+  - {fileID: 8300000, guid: e36978c07927e1948b67d6315b23e01f, type: 3}
+  - {fileID: 8300000, guid: 69efccf743119394abef765d805c8a62, type: 3}
 --- !u!1 &2302024987501415662
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +1005,9 @@ MonoBehaviour:
   throwKey: 324
   throwForce: 20
   throwUpwardForce: 1
+  throwSounds:
+  - {fileID: 8300000, guid: a327b8721cddbb748aff465399482c20, type: 3}
+  - {fileID: 8300000, guid: 9cc4968fe2faa5c4896a9f444cccfac3, type: 3}
 --- !u!1 &5203338749538740302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1342,8 @@ MonoBehaviour:
   player: {fileID: 2142296327986448920}
   coolDown: 3
   animator: {fileID: 668108669199894210}
+  rockSound: {fileID: 8300000, guid: a327b8721cddbb748aff465399482c20, type: 3}
+  clapSound: {fileID: 8300000, guid: b78d389c862b70641810a98fe20988dc, type: 3}
 --- !u!1 &5446705701732007021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1414,6 +1428,7 @@ MonoBehaviour:
   coolDown: 5
   venom: {fileID: 2532673601240506604, guid: 08e0935fd696b754898d3e803d9f27ab, type: 3}
   animator: {fileID: 668108669199894210}
+  venomSound: {fileID: 8300000, guid: 032b5814840ebdf4182d03e5fdfe3289, type: 3}
 --- !u!1 &5947195265672365949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,6 +1922,10 @@ MonoBehaviour:
   chargeParticle: {fileID: 2564674996271125065}
   readyParticle: {fileID: 4779106114141991002}
   heavyPunchParticle: {fileID: 7143752912708337241}
+  hitsound:
+  - {fileID: 8300000, guid: b5a0bfe6512e600419b9fed2ce627bdc, type: 3}
+  - {fileID: 8300000, guid: 94cc51417e536f44eb4dc8163786ff0e, type: 3}
+  - {fileID: 8300000, guid: 0a19ef7fcbbaf4447962819c8014cf60, type: 3}
 --- !u!1 &8223939824395925474
 GameObject:
   m_ObjectHideFlags: 0
@@ -2265,6 +2284,7 @@ MonoBehaviour:
   animator: {fileID: 668108669199894210}
   retractSpeed: 2
   grapplingKey: 304
+  grappleSound: {fileID: 8300000, guid: a327b8721cddbb748aff465399482c20, type: 3}
 --- !u!1 &8832314549593177284
 GameObject:
   m_ObjectHideFlags: 0

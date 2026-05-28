@@ -24,6 +24,8 @@ public class SpinningProyectile : MonoBehaviour
         {
             Debug.Log("Spinning Proyectile");
             other.GetComponent<EnemyLifeManager>()?.TakeDamage(5,transform.position,1);
+            other.GetComponent<CrystalLifeManager>()?.TakeDamageCrystal(5);
+
         }
     }
 }

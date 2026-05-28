@@ -9,12 +9,16 @@ public class RockLaunch : MonoBehaviour
     [SerializeField] private GameObject player;
     private bool ready = false;
     private float coolDownTime;
-    [SerializeField]private float coolDown;
+    [SerializeField]public float coolDown;
     
 
     private GameObject _actualRock;
     private CharacterController _characterController;
     [SerializeField]private Animator animator;
+    
+    [Header("Sound")]
+    [SerializeField] private AudioClip rockSound;
+    [SerializeField] private AudioClip clapSound;
 
     private void Start()
     {
@@ -33,6 +37,7 @@ public class RockLaunch : MonoBehaviour
         }
         if (Input.GetKeyDown(rockLaunchKey)&& ready)
         {
+            AudioManager.instance.PlaySFX(rockSound);
             _actualRock = Instantiate(
                 rockReference,
                 rockLaunchPoint.position,
@@ -42,6 +47,8 @@ public class RockLaunch : MonoBehaviour
 
         if (Input.GetKeyUp(rockLaunchKey)&& ready)
         {
+            AudioManager.instance.PlaySFX(clapSound);
+
             if (_actualRock != null)
             {
                 //AQUI

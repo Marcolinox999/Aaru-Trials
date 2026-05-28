@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private Material _materialDefault;
     [SerializeField] private Material _materialStun;
     [SerializeField] private float timeToStun;
+    public float score;
+    [Header("Sound")]
+    [SerializeField] private AudioClip[] hitSound;
 
     private void Start()
     {
@@ -28,6 +32,7 @@ public class PlayerLife : MonoBehaviour
 
     public void TakeDamage(float damage, bool stun)
     {
+        AudioManager.instance.PlaySFX(hitSound[Random.Range(0, hitSound.Length)]);
         if (stun)
             StartCoroutine(Stun(timeToStun));
         life -= damage;

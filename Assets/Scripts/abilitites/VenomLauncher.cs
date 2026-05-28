@@ -2,13 +2,16 @@ using UnityEngine;
 
 public class VenomLauncher : MonoBehaviour
 {
+    [Header("Venom")]
     [SerializeField] private KeyCode VenomKey;
-    [SerializeField] private float coolDown;
+    [SerializeField] public float coolDown;
     private float coolDownTime;
     private bool ready;
     [SerializeField] private GameObject venom;
     private float timer;
     [SerializeField]private Animator animator;
+    [Header("Sounds")]
+    [SerializeField] private AudioClip venomSound;
 
     
     
@@ -25,6 +28,7 @@ public class VenomLauncher : MonoBehaviour
 
         if (Input.GetKeyDown(VenomKey) && ready)
         {
+            AudioManager.instance.PlaySFX(venomSound);
             //AQUI
             animator.Play("VenomLauncher");
             Instantiate(venom, transform.position, Quaternion.identity);

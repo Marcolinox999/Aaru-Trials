@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Melee : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class Melee : MonoBehaviour
 
     [Space(10)] [Header("Attack Stats")] 
     [SerializeField] private Vector3 meleeRange;
-    [SerializeField] private float damage;
-    [SerializeField] private float heavyDamage;
+    [SerializeField] public float damage;
+    [SerializeField] public float heavyDamage;
     private float actualDamage;
     [SerializeField] private float comboTime;
     [Range(-1, 1)]
@@ -31,6 +32,9 @@ public class Melee : MonoBehaviour
     [SerializeField] private ParticleSystem readyParticle;
     [SerializeField]private ParticleSystem heavyPunchParticle;
     private EnemyLifeManager _enemyLifeManager;
+    private CrystalLifeManager _crystalLifeManager;
+    [Header("Sound")]
+    [SerializeField]private AudioClip[] hitsound;
 
     private void Update()
     {
@@ -89,6 +93,7 @@ public class Melee : MonoBehaviour
 
     public void Punch()
     {
+        AudioManager.instance.PlaySFX(hitsound[Random.Range(0, hitsound.Length)]);
         actualDamage =  damage;
         simplePunchParticle.Play();
        StartCoroutine(TimeToDissolve());
@@ -97,6 +102,7 @@ public class Melee : MonoBehaviour
     }
     public void HeavyPunch()
     {
+        AudioManager.instance.PlaySFX(hitsound[Random.Range(0, hitsound.Length)]);
         actualDamage =  heavyDamage;
         heavyPunchParticle.Play();
         StartCoroutine(TimeToDissolve());
@@ -113,6 +119,11 @@ public class Melee : MonoBehaviour
             if (_enemyLifeManager)
             {
                 _enemyLifeManager.TakeDamage(actualDamage, transform.position,polarization );
+            }
+            objectHitted.TryGetComponent(out _crystalLifeManager);
+            if (_crystalLifeManager)
+            {
+                _crystalLifeManager.TakeDamageCrystal(actualDamage);
             }
         }
         yield return new WaitForSeconds(0.1f);
