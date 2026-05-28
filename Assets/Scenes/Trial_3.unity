@@ -7216,7 +7216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1915156850}
-  - component: {fileID: 1915156849}
+  - component: {fileID: 1915156851}
   m_Layer: 0
   m_Name: --ENVIROMENT--
   m_TagString: LevelComplete
@@ -7224,25 +7224,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1915156849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915156848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31659a8bbbd4d1540a8ce3615f92e58d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
-  ui_Complete: {fileID: 0}
-  player: {fileID: 0}
-  playerMovement: {fileID: 0}
-  proyectileLogic: {fileID: 0}
-  animatorManager: {fileID: 0}
-  canvas: []
-  stageCompleted: 0
 --- !u!4 &1915156850
 Transform:
   m_ObjectHideFlags: 0
@@ -7310,6 +7291,25 @@ Transform:
   - {fileID: 1077668548}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1915156851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915156848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31659a8bbbd4d1540a8ce3615f92e58d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
+  ui_Complete: {fileID: 0}
+  player: {fileID: 0}
+  playerMovement: {fileID: 0}
+  proyectileLogic: {fileID: 0}
+  animatorManager: {fileID: 0}
+  canvas: []
+  stageCompleted: 0
 --- !u!4 &1917557914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6663029320954967700, guid: 0fc3cf5f57f854948b34515282035011, type: 3}

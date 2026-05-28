@@ -10,7 +10,7 @@ public class DestroyDoor : MonoBehaviour
 
     private void Update()
     {
-        if (enemies[0] == null && enemies[1] == null && enemies[2] == null && enemies[3] == null && enemies[4] == null && enemies[5] == null && enemies[6] == null && enemies[7] == null)
+        if (enemies[0] == null)
         {
             Destroy(doors);
         }
