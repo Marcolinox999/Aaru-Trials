@@ -26,6 +26,8 @@ public class SlamDetector : MonoBehaviour
 
   private IEnumerator WaitForCollider()
   {
+    yield return new WaitForSeconds(5f);
+    _anubis.CurrentState = Anubis.State.RISING;
     yield return new WaitForSeconds(2.5f);
     _collider.enabled = true;
   }

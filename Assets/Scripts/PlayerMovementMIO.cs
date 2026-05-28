@@ -85,10 +85,14 @@ public class PlayerMovementMIO : MonoBehaviour
     private void ApplyTotalVelocity()
     {
         var totalVelocity = _playerVelocity +  _verticalVelocity * Vector3.up + _slideVelocity * _slideVelocityFactor;
-        if (zawardo.isStoppingTime)
+        if (zawardo != null)
         {
-            //totalVelocity = Vector3.zero;
+            if (zawardo.isStoppingTime)
+            {
+                //totalVelocity = Vector3.zero;
+            }
         }
+
         _characterController.Move(totalVelocity * Time.deltaTime);
         
     }

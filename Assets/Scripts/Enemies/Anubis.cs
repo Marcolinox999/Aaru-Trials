@@ -80,7 +80,7 @@ public class Anubis : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, desiredTarget, speed * Time.deltaTime);
     }
 
-    private void Rising()
+    public void Rising()
     {
         isTouchingFloor = false;
         desiredTarget = new Vector3(transform.position.x, anubisPos.y, transform.position.z);

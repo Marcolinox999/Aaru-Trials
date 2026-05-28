@@ -7,18 +7,28 @@ using Random = UnityEngine.Random;
 public class PlayerLife : MonoBehaviour
 {
     public float life;
-    [SerializeField] GameObject death;
     [SerializeField] private Slider lifebar;
     [SerializeField] private Renderer _renderer;
     [SerializeField] private Material _materialDefault;
     [SerializeField] private Material _materialStun;
     [SerializeField] private float timeToStun;
+
+    public bool Dead;
+    
+    public GameObject player;
+    public AnimatorManager animatorManager;
+    public GameObject[] canvas;
+    
     public float score;
     [Header("Sound")]
     [SerializeField] private AudioClip[] hitSound;
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        canvas = GameObject.FindGameObjectsWithTag("Pause");
+        animatorManager =  player.GetComponent<AnimatorManager>();
+        
         _materialDefault = _renderer.material;
     }
 
@@ -26,7 +36,15 @@ public class PlayerLife : MonoBehaviour
     {
         if (life <= 0)
         {
-            death.SetActive(true);
+            life = 0;
+            Dead = true;
+            Time.timeScale = 0;
+            player.SetActive(false);
+            for (int i = 0; i < canvas.Length; i++)
+            {
+                canvas[i].SetActive(false);
+            }
+            animatorManager.enabled = false;
         }
     }
 
