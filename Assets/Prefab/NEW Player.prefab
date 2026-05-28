@@ -506,6 +506,7 @@ GameObject:
   - component: {fileID: 668108669199894210}
   - component: {fileID: 4058327194450729417}
   - component: {fileID: 910549528606713557}
+  - component: {fileID: 3341889461349127485}
   m_Layer: 7
   m_Name: NEW Player
   m_TagString: Player
@@ -670,9 +671,26 @@ MonoBehaviour:
   _materialDefault: {fileID: 0}
   _materialStun: {fileID: 2100000, guid: 03e30876fff35ce4193c7c8a3d1f91bd, type: 2}
   timeToStun: 0.3
+  score: 0
   hitSound:
   - {fileID: 8300000, guid: e36978c07927e1948b67d6315b23e01f, type: 3}
   - {fileID: 8300000, guid: 69efccf743119394abef765d805c8a62, type: 3}
+--- !u!114 &3341889461349127485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142296327986448920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 129c8b1e7e4ac644eaa3a9e4eaf32701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PassiveSystem
+  damageMultiplier: 1.5
+  healthMultiplier: 2
+  coolDownMultiplier: 0.8
+  player: {fileID: 2142296327986448920}
 --- !u!1 &2302024987501415662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,6 +1833,7 @@ MonoBehaviour:
   zawardoFiller: {fileID: 637591027775531628}
   isStoppingTime: 0
   isZawarding: 0
+  cooldownTimer: 0
   animator: {fileID: 668108669199894210}
 --- !u!114 &7181719985311724575
 MonoBehaviour:
@@ -1913,7 +1932,7 @@ MonoBehaviour:
   key: 323
   meleeRange: {x: 1.93, y: 0.7, z: 4.42}
   damage: 5
-  heavyDamage: 50
+  heavyDamage: 10
   comboTime: 3
   polarization: -1
   holdThreshold: 1
