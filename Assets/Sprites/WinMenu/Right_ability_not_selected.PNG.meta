@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 090bb8e6806066543a9344faddd8e794
+guid: 41181b42431e6634bbb8fa1a5e7b15b6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Left_ability_selected_0
+      name: Right_ability_not_selected_0
       rect:
         serializedVersion: 2
-        x: 452
-        y: 329
-        width: 1158
-        height: 1190
+        x: 1898
+        y: 343
+        width: 1165
+        height: 1171
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e539013bc1bbcc943a2a7c878b2f97e8
-      internalID: -2048453691
+      spriteID: 84c7beab40b43fa44b075aafb0a21b16
+      internalID: 504882275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Left_ability_selected_1
+      name: Right_ability_not_selected_1
       rect:
         serializedVersion: 2
-        x: 844
-        y: 329
+        x: 1942
+        y: 336
         width: 4
-        height: 7
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,30 +134,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92d3bbdd05b74374fa35c60542e2e86d
-      internalID: 740382834
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Left_ability_selected_2
-      rect:
-        serializedVersion: 2
-        x: 993
-        y: 329
-        width: 4
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83c4a3c605f990e41a67ea7952cbe556
-      internalID: 607372816
+      spriteID: d1d6961eab3f0334183e0f9bd9ae11a2
+      internalID: -1820338509
       vertices: []
       indices: 
       edges: []
@@ -166,7 +144,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3b5f0a3acd4ace445ab4e0c29af4cfb3
+    spriteID: 80ae9e66a30796f4d8a33ee58042f039
     internalID: 0
     vertices: []
     indices: 
@@ -178,9 +156,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Left_ability_selected_0: -2048453691
-      Left_ability_selected_1: 740382834
-      Left_ability_selected_2: 607372816
+      Right_ability_not_selected_0: 504882275
+      Right_ability_not_selected_1: -1820338509
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
