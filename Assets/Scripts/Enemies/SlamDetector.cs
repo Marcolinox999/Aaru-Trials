@@ -12,7 +12,7 @@ public class SlamDetector : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    if (other.gameObject.CompareTag("Player"))
+    if (other.gameObject.CompareTag("Player") && _anubis.CurrentState == Anubis.State.FOLLOWING)
       _anubis.CurrentState = Anubis.State.DROPING;
     
   }

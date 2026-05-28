@@ -2849,8 +2849,8 @@ Transform:
   m_GameObject: {fileID: 2053038321}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -36.46, y: 3.13, z: -7.629999}
-  m_LocalScale: {x: 48.087, y: 1.049595, z: 48.087}
+  m_LocalPosition: {x: -36.46, y: -0.3, z: -7.629999}
+  m_LocalScale: {x: 48.087, y: 7.867134, z: 48.087}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 109223493}
@@ -3273,7 +3273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1722298649093876622, guid: 9f48a419a588d9140a8a63658fdb1890, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21
+      value: 24.1
       objectReference: {fileID: 0}
     - target: {fileID: 1722298649093876622, guid: 9f48a419a588d9140a8a63658fdb1890, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3321,7 +3321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9125925566538831566, guid: 9f48a419a588d9140a8a63658fdb1890, type: 3}
       propertyPath: speed
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9125925566538831566, guid: 9f48a419a588d9140a8a63658fdb1890, type: 3}
       propertyPath: BossDamage
