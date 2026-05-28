@@ -4269,6 +4269,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Pause
       objectReference: {fileID: 0}
+    - target: {fileID: 1267595450578171278, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267595450578171278, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1547053029374810627, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4279,7 +4287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1835626848056375478, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1847191757676008315, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_Enabled
@@ -4349,6 +4357,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4394405266338490743, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      propertyPath: cooldownFiller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394405266338490743, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      propertyPath: numberOfKnifes
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5203338749538740302, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_TagString
       value: Pause
@@ -4375,7 +4391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7126857827502255690, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8160305508544849273, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: _playerMovement
@@ -4384,6 +4400,10 @@ PrefabInstance:
     - target: {fileID: 8223939824395925474, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_TagString
       value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380441520959027139, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      propertyPath: numberOfKnifes
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8552080899682732655, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_IsActive
@@ -4398,7 +4418,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 774097349478559688, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2317806238297699839, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       insertIndex: -1
