@@ -42,6 +42,14 @@ public class StickyProyectiles : MonoBehaviour
             // destroy projectile
             //Destroy(gameObject);
         }
+        if(collision.gameObject.GetComponent<CrystalLifeManager>() != null)
+        {
+            Debug.Log("CrystalDamage");
+            CrystalLifeManager enemyCrystal = collision.gameObject.GetComponent<CrystalLifeManager>();
+
+            enemyCrystal.TakeDamageCrystal(damage);
+            
+        }
 
         // make sure projectile sticks to surface
         rb.isKinematic = true;

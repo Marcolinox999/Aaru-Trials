@@ -12,10 +12,12 @@ public class IceExplosion : MonoBehaviour
     [Range(-1, 1)]
     [SerializeField] int polarization;
     [SerializeField] float freezeTime;
-    [SerializeField] float cooldown;
+    [SerializeField] public float cooldown;
     private bool isOnCooldown = false;
     private float _timer;
     [SerializeField]private Animator animator;
+    [Header("Sounds")]
+    [SerializeField] AudioClip iceSound;
 
 
     private void Update()
@@ -32,8 +34,7 @@ public class IceExplosion : MonoBehaviour
         {
             //AQUI
             animator.Play("IceExplosion");
-            
-            
+            AudioManager.instance.PlaySFX(iceSound);
             Instantiate(iceParticles, transform.position, Quaternion.identity);
             isOnCooldown = true;
         }

@@ -21,6 +21,8 @@ public class ProyectileLogic : MonoBehaviour
     public KeyCode throwKey = KeyCode.Mouse1;
     public float throwForce;
     public float throwUpwardForce;
+    [Header ("Sounds")]
+    [SerializeField]private AudioClip[] throwSounds;
 
     bool readyToThrow;
 
@@ -47,6 +49,7 @@ public class ProyectileLogic : MonoBehaviour
 
     private void Throw()
     {
+        AudioManager.instance.PlaySFX(throwSounds[Random.Range(0, throwSounds.Length)]);
         animator.SetTrigger("Throw");
         readyToThrow = false;
         GameObject projectile = Instantiate(objectToThrow, attackPoint.position,transform.rotation);

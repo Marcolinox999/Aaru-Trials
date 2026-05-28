@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Anubis : MonoBehaviour
 {
@@ -16,9 +18,14 @@ public class Anubis : MonoBehaviour
     [SerializeField] private float desiredY;
     [SerializeField] private float BossDamage = 30f;
     private bool isSlaming;
+    private bool isTouchingFloor;
     private PlayerLife _playerLife;
     private EnemyLifeManager _enemyLifeManager;
     private RaycastHit savedHit;
+    private ParticleSystem _particleSystem;
+    [SerializeField]private CrystalLifeManager[] gems;
+    [Header("Sound")]
+    [SerializeField]private AudioClip explosionSound;
     
     public enum State
     {
@@ -36,6 +43,7 @@ public class Anubis : MonoBehaviour
 
         anubisPos = transform.position;
         rb = gameObject.GetComponent<Rigidbody>();
+        _particleSystem = gameObject.GetComponentInChildren<ParticleSystem>();
 
     }
     
@@ -53,11 +61,14 @@ public class Anubis : MonoBehaviour
                 Rising();
                 break;
         }
-        
+        DeathCheck();
     }
 
     private void FollowPlayer()
     {
+        Vector3 targetPosition = player.transform.position;
+        targetPosition.y = transform.position.y;
+        transform.LookAt(targetPosition);
         desiredTarget = new Vector3(player.transform.position.x, anubisPos.y, player.transform.position.z);
         transform.position = Vector3.MoveTowards(transform.position, desiredTarget, speed * Time.deltaTime);
     }
@@ -65,12 +76,13 @@ public class Anubis : MonoBehaviour
     private void Slamming()
     {
         desiredTarget = new Vector3(transform.position.x, savedHit.point.y, transform.position.z);
-
-        transform.position = Vector3.MoveTowards(transform.position, desiredTarget, speed * Time.deltaTime);
+        if (!isTouchingFloor)
+            transform.position = Vector3.MoveTowards(transform.position, desiredTarget, speed * Time.deltaTime);
     }
 
     private void Rising()
     {
+        isTouchingFloor = false;
         desiredTarget = new Vector3(transform.position.x, anubisPos.y, transform.position.z);
         transform.position = Vector3.MoveTowards(transform.position, desiredTarget, speed * Time.deltaTime
         );
@@ -84,7 +96,10 @@ public class Anubis : MonoBehaviour
     {
         if (LayerMask.LayerToName(collision.gameObject.layer) == "Floor")
         {
+            AudioManager.instance.PlaySFX(explosionSound);
             StartCoroutine(WaitForRise());
+            _particleSystem.Play();
+            isTouchingFloor = true;
         }
         else if (LayerMask.LayerToName(collision.gameObject.layer) == "Player")
         {
@@ -101,6 +116,7 @@ public class Anubis : MonoBehaviour
             collision.gameObject.transform.localScale = new Vector3(collision.gameObject.transform.localScale.x, 0.1f, collision.gameObject.transform.localScale.z);
             _enemyLifeManager = collision.gameObject.GetComponentInParent<EnemyLifeManager>();
             StartCoroutine(_enemyLifeManager.WaitForDeath());
+            _particleSystem.Play();
 
         }
     }
@@ -117,5 +133,14 @@ public class Anubis : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(3f);
         CurrentState = State.RISING;
+    }
+
+    private void DeathCheck()
+    {
+        float totalHealth = gems.Sum(gem => gem.crystalLife);
+        if (totalHealth <= 0f)
+        {
+            Destroy(gameObject);
+        }
     }
 }

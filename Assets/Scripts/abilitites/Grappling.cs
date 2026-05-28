@@ -28,6 +28,8 @@ public class Grappling : MonoBehaviour
     [SerializeField] private float retractSpeed = 25f;
     
     [SerializeField] private KeyCode grapplingKey = KeyCode.LeftShift;
+    [Header("Sound")]
+    [SerializeField] private AudioClip grappleSound;
 
     private void Awake()
     {
@@ -66,7 +68,7 @@ public class Grappling : MonoBehaviour
     {
         //AQUI
         animator.Play("Grappling");
-        
+        AudioManager.instance.PlaySFX(grappleSound);
         
         RaycastHit hit;
         if (Physics.Raycast(player.position, player.forward, out hit, maxDistance, whatIsGrappeable))

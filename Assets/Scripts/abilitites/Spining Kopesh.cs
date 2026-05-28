@@ -25,6 +25,9 @@ public class SpiningKopesh : MonoBehaviour
     public float throwUpwardForce;
 
     bool readyToThrow;
+
+    [Header("Sounds")]
+    [SerializeField]private AudioClip spinSound;
     
 
     private void Start()
@@ -50,6 +53,7 @@ public class SpiningKopesh : MonoBehaviour
 
     private void Throw()
     {
+        AudioManager.instance.PlaySFX(spinSound);
         animator.SetTrigger("Throw");
         readyToThrow = false;
         GameObject projectile = Instantiate(objectToThrow, attackPoint.position,transform.rotation);

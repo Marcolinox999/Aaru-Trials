@@ -18,7 +18,7 @@ public class Zawardo : MonoBehaviour
   public bool isStoppingTime = false;
   public bool isZawarding = false;
   private float timer;
-  private float cooldownTimer;
+  public float cooldownTimer;
   private float timeStopTimer;
   [SerializeField]private Animator animator;
   

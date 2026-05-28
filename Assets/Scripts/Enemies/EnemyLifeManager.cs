@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Animations;
+using Random = UnityEngine.Random;
 using Slider = UnityEngine.UI.Slider;
 
 public class EnemyLifeManager : MonoBehaviour
@@ -35,8 +33,12 @@ public class EnemyLifeManager : MonoBehaviour
     private float freezeTimer = 0;
     private BasicEnemyMovement _basicEnemyMovement;
     private EnemyAttacks _enemyAttacks;
+    private PlayerLife _playerLife;
+    private GameObject _player;
     
     private Vector3 HitDirection;
+    [Header("Sounds")]
+    [SerializeField] AudioClip[] hitSound;
 
     private void Start()
     {
@@ -50,7 +52,8 @@ public class EnemyLifeManager : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _basicEnemyMovement = GetComponent<BasicEnemyMovement>();
         _enemyAttacks = GetComponent<EnemyAttacks>();
-
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _playerLife = _player.GetComponent<PlayerLife>();
     }
     private void Update()
     {
@@ -82,6 +85,8 @@ public class EnemyLifeManager : MonoBehaviour
     public void TakeDamage(float damage, Vector3 hitDirection, int polarization)
     {
         if (!canTakeDamage) return;
+        AudioManager.instance.PlaySFX(hitSound[Random.Range(0, hitSound.Length)]);
+
         if (isFrozen)
         {
             damage *= 2;
@@ -110,12 +115,12 @@ public class EnemyLifeManager : MonoBehaviour
         _animator.SetTrigger("Dead");
         _agent.enabled = false;
         yield return new WaitForSecondsRealtime(1.2f);
+        _playerLife.score += 10;
         Destroy(destroyReference);
     }
 
     private IEnumerator Stun()
     {
-        Debug.Log("Stun");
         isStunned = true;
         yield return new WaitForSecondsRealtime(0.2f);
         isStunned = false;
@@ -129,9 +134,7 @@ public class EnemyLifeManager : MonoBehaviour
         isFrozen = true;
         _agent.velocity = Vector3.zero;
         freezeParticle.Play();
-        Debug.Log("Freeze");
         yield return new WaitForSecondsRealtime(2);
-        Debug.Log("UnFreeze");
         isFrozen = false;
         freezeParticle.Stop();
         freezeTimer = 0;
@@ -141,14 +144,12 @@ public class EnemyLifeManager : MonoBehaviour
         if (isPoisoned) yield break;
         isPoisoned = true;
         poisonedParticle.Play();
-        Debug.Log("Venom");
         for (int i = 0; i < 5; i++)
         {
             TakeDamage(10, Vector3.zero, 0);
             yield return new WaitForSecondsRealtime(1f);
         }
         //yield return new WaitForSecondsRealtime(2);
-        Debug.Log("noVenom");
         isPoisoned = false;
         poisonedParticle.Stop();
     }
@@ -161,7 +162,6 @@ public class EnemyLifeManager : MonoBehaviour
             {
                 _basicEnemyMovement.enabled = true;
                 _rb.freezeRotation = false;
-                Debug.Log("Puede Volver a andar");
                 _agent.enabled = true;
                 canWalkAgain = false;
             }
