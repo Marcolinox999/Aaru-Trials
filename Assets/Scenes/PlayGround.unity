@@ -627,11 +627,6 @@ Transform:
   - {fileID: 1005800285}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &605558318 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6497835345879430092, guid: 37c5013ce548c8949aabb58178fc2c7a, type: 3}
-  m_PrefabInstance: {fileID: 8612359141837466065}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &840643043
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,23 +2784,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1903276253 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5586190770476054424, guid: 9f48a419a588d9140a8a63658fdb1890, type: 3}
-  m_PrefabInstance: {fileID: 5872128746033653096}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1903276259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903276253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c4c799d215c73744b4a45efff3fbc8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ZawardoForAnubis
 --- !u!1 &1918292187 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7252557991237821940, guid: 62d2a7f5da1084f6994dcbca19a2ddb2, type: 3}
@@ -3207,10 +3185,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 910549528606713557, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
-      propertyPath: death
-      value: 
-      objectReference: {fileID: 605558318}
     - target: {fileID: 2142296327986448920, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3254,10 +3228,6 @@ PrefabInstance:
     - target: {fileID: 2317806238297699839, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8160305508544849273, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
-      propertyPath: healKey
-      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8380441520959027139, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: cooldownFiller
@@ -3363,10 +3333,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5586190770476054424, guid: 9f48a419a588d9140a8a63658fdb1890, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1903276259}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f48a419a588d9140a8a63658fdb1890, type: 3}
 --- !u!1001 &8465959070667870348
 PrefabInstance:
