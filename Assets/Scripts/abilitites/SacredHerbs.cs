@@ -10,6 +10,7 @@ public class SacredHerbs : MonoBehaviour
     [SerializeField] private GameObject healing;
     private float timer;
     [SerializeField]private Animator animator;
+    [SerializeField] private KeyCode healKey;
     private bool isOnCooldown = false;
     private float _timer;
     [Header("Sounds")]
@@ -29,7 +30,7 @@ public class SacredHerbs : MonoBehaviour
             isOnCooldown = false;
             _timer = 0;
         }
-        if (Input.GetKeyDown(KeyCode.X) && !isOnCooldown)
+        if (Input.GetKeyDown(healKey) && !isOnCooldown)
         {
             //AQUI
             animator.Play("SacredHerbs");
