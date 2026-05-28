@@ -15,6 +15,7 @@ TagManager:
   - SpawnPoint
   - LevelComplete
   - EnemyManager
+  - UI
   layers:
   - Default
   - TransparentFX
