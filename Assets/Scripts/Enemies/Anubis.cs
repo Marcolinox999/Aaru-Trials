@@ -8,7 +8,6 @@ using UnityEngine.Animations;
 public class Anubis : MonoBehaviour
 {
     private GameObject player;
-    private Zawardo zawardo;
     private GameObject abilities;
     private GameObject cosmetics;
     private Rigidbody rb;
@@ -27,23 +26,18 @@ public class Anubis : MonoBehaviour
     [SerializeField]private CrystalLifeManager[] gems;
     [Header("Sound")]
     [SerializeField]private AudioClip explosionSound;
-    
     public enum State
     {
         FOLLOWING,
         DROPING,
         RISING,
-        STOP,
     }    
     public State CurrentState;
-    public State backUpState;
-
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         abilities = player.transform.GetChild(0).gameObject;
         cosmetics = player.transform.GetChild(1).gameObject;
-        zawardo = player.GetComponentInChildren<Zawardo>();
         anubisPos = transform.position;
         rb = gameObject.GetComponent<Rigidbody>();
         _particleSystem = gameObject.GetComponentInChildren<ParticleSystem>();
@@ -63,15 +57,8 @@ public class Anubis : MonoBehaviour
             case State.RISING:
                 Rising();
                 break;
-            case State.STOP:
-                Stop();
-                break;
         }
         DeathCheck();
-    }
-
-    private void Stop()
-    {
     }
 
     private void FollowPlayer()
@@ -141,29 +128,18 @@ public class Anubis : MonoBehaviour
 
     private IEnumerator WaitForRise()
     {
-        yield return new WaitForSecondsRealtime(3f);
-        CurrentState = State.RISING;
+       
+            yield return new WaitForSecondsRealtime(3f);
+            CurrentState = State.RISING;
+        
     }
 
     private void DeathCheck()
     {
-        if (zawardo.isZawarding)
-        {
-            Debug.Log(zawardo);
-            backUpState = CurrentState;
-            StartCoroutine(TimeStop());
-        }
         float totalHealth = gems.Sum(gem => gem.crystalLife);
         if (totalHealth <= 0f)
         {
             Destroy(gameObject);
         }
-    }
-
-    private IEnumerator TimeStop()
-    {
-        CurrentState = State.STOP;
-        yield return new WaitForSecondsRealtime(4f);
-        CurrentState = backUpState;
     }
 }
