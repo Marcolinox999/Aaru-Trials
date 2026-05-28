@@ -8,6 +8,8 @@ public class VenomLauncher : MonoBehaviour
     private bool ready;
     [SerializeField] private GameObject venom;
     private float timer;
+    [SerializeField]private Animator animator;
+
     
     
     private void Update()
@@ -23,6 +25,8 @@ public class VenomLauncher : MonoBehaviour
 
         if (Input.GetKeyDown(VenomKey) && ready)
         {
+            //AQUI
+            animator.Play("VenomLauncher");
             Instantiate(venom, transform.position, Quaternion.identity);
             ready = false;
             coolDownTime = coolDown;

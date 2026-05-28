@@ -7,19 +7,10 @@ public class EnemyAttacks : MonoBehaviour
   private bool canAttack = true;
   [SerializeField]  private Animator animator;
   [SerializeField] private PlayerLife life;
-  [SerializeField] private Material _materialAttack;
-  [SerializeField] private LayerMask playerMask;
-  private Renderer _renderer;
-  private Material _materialDefault;
   private PlayerLife _player;
-  [SerializeField] private float radius = 0.75f;
-  [SerializeField] private float range = 2f;
-
-  private void Start()
-  {
-    _renderer = GetComponentInChildren<Renderer>();
-    _materialDefault =  _renderer.material;
-  }
+  public bool isAttacking = false;
+  [SerializeField]private Collider _collider;
+  
 
   private void OnTriggerEnter(Collider other)
   {
@@ -35,28 +26,19 @@ public class EnemyAttacks : MonoBehaviour
   
   IEnumerator  AttackItSelf()
   {
-    Material[] mats = _renderer.materials;
-    mats[1] = _materialAttack;
-    _renderer.materials = mats;
+    _collider.enabled = false;
+    Debug.Log("Animacion no");
     animator.Play("attack");
-    _player.TakeDamage(10);
+    Debug.Log("Animacion si");
+    _player.TakeDamage(10, stun: true);
+    isAttacking = true;
     yield return new WaitForSeconds(1f);
-    mats[1] = _materialDefault;            
-    _renderer.materials = mats;           
+    _collider.enabled = true;
+    isAttacking = false;
     Debug.Log("Cooling Down");
-    yield return new WaitForSeconds(3f);
+    yield return new WaitForSeconds(1f);
     Debug.Log("Cooling Up");
     
     canAttack = true;
-  }
-  private void OnDrawGizmosSelected()
-  {
-    Gizmos.color = Color.red;
-    Vector3 origin = transform.position;
-    Vector3 direction = transform.forward;
-    Gizmos.DrawWireSphere(origin, radius);
-    Vector3 end = origin + direction * range;
-    Gizmos.DrawWireSphere(end, radius);
-    Gizmos.DrawLine(origin, end);
   }
 }

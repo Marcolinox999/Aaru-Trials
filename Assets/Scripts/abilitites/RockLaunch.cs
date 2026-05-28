@@ -14,6 +14,7 @@ public class RockLaunch : MonoBehaviour
 
     private GameObject _actualRock;
     private CharacterController _characterController;
+    [SerializeField]private Animator animator;
 
     private void Start()
     {
@@ -43,6 +44,8 @@ public class RockLaunch : MonoBehaviour
         {
             if (_actualRock != null)
             {
+                //AQUI
+                animator.Play("RockLaunch");
                 _characterController.enabled = false;
 
                 player.transform.position =

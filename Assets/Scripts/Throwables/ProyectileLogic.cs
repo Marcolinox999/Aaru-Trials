@@ -8,7 +8,7 @@ public class ProyectileLogic : MonoBehaviour
     public Transform cam;
     public Transform attackPoint;
     public GameObject objectToThrow;
-    private Animator animator;
+    [SerializeField]private Animator animator;
     private float timer;
 
     [Header("Throwing Stuff")]
@@ -27,7 +27,6 @@ public class ProyectileLogic : MonoBehaviour
     private void Start()
     {
         readyToThrow = true;
-        animator = GetComponent<Animator>();
     }
 
     private void Update()

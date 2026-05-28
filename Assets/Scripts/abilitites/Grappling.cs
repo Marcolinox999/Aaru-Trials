@@ -19,7 +19,8 @@ public class Grappling : MonoBehaviour
     [SerializeField] private float ropeSpeed = 20f;
     private float ropeProgress;
     private bool isExtending;
-
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
     
     private bool isRetracting;
     private GameObject currentReward;
@@ -63,6 +64,10 @@ public class Grappling : MonoBehaviour
 
     private void StartGrapple()
     {
+        //AQUI
+        animator.Play("Grappling");
+        
+        
         RaycastHit hit;
         if (Physics.Raycast(player.position, player.forward, out hit, maxDistance, whatIsGrappeable))
         {

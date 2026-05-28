@@ -23,7 +23,7 @@ public class EnemyLifeManager : MonoBehaviour
     [SerializeField] private Material poisonedMaterial;
     [SerializeField] private ParticleSystem freezeParticle;
     [SerializeField] private ParticleSystem poisonedParticle;
-
+    [SerializeField]  private Material attackMaterial;
     private Material _defaultMaterial;
     private Renderer _renderer;
     private bool canWalkAgain = false;
@@ -31,8 +31,10 @@ public class EnemyLifeManager : MonoBehaviour
     public bool isFrozen = false;
     public bool isPoisoned = false;
     public bool isStunned = false;
+    private bool isAttacking = false;
     private float freezeTimer = 0;
     private BasicEnemyMovement _basicEnemyMovement;
+    private EnemyAttacks _enemyAttacks;
     
     private Vector3 HitDirection;
 
@@ -47,13 +49,11 @@ public class EnemyLifeManager : MonoBehaviour
         particle = GetComponentInChildren<ParticleSystem>();
         _agent = GetComponent<NavMeshAgent>();
         _basicEnemyMovement = GetComponent<BasicEnemyMovement>();
+        _enemyAttacks = GetComponent<EnemyAttacks>();
+
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //TakeDamage(5);
-        }
         UpdateMaterial();
     }
     private void UpdateMaterial()
@@ -69,6 +69,10 @@ public class EnemyLifeManager : MonoBehaviour
         else if (isStunned)
         {
             _renderer.material = stunMaterial;
+        }
+        else if (_enemyAttacks.isAttacking)
+        {
+            _renderer.material = attackMaterial;
         }
         else
         {
@@ -97,13 +101,13 @@ public class EnemyLifeManager : MonoBehaviour
        healthBar.value = enemyLife/life; 
        if (enemyLife <= 0)
        {
-           _animator.SetTrigger("Dead");
            StartCoroutine(WaitForDeath());
        }
        particle.Play();
     }
-    private IEnumerator WaitForDeath()
+    public IEnumerator WaitForDeath()
     {
+        _animator.SetTrigger("Dead");
         _agent.enabled = false;
         yield return new WaitForSecondsRealtime(1.2f);
         Destroy(destroyReference);
