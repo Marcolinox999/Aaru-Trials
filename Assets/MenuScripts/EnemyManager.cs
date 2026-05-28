@@ -8,8 +8,6 @@ public class EnemyManager : MonoBehaviour
     public GameObject ui_Complete;
     
     public GameObject player;
-    public PlayerMovementMIO playerMovement;
-    public ProyectileLogic proyectileLogic;
     public AnimatorManager animatorManager;
     public GameObject[] canvas;
 
@@ -18,8 +16,6 @@ public class EnemyManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         canvas = GameObject.FindGameObjectsWithTag("Pause");
-        playerMovement = player.GetComponent<PlayerMovementMIO>();
-        proyectileLogic = player.GetComponent<ProyectileLogic>();
         animatorManager =  player.GetComponent<AnimatorManager>();
         
         ui_Complete = GameObject.FindGameObjectWithTag("LevelComplete");

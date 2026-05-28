@@ -6,6 +6,7 @@ public class StageCompleted : MonoBehaviour
 {
     private GameObject enemiesInLevel;
     private EnemyManager manager;
+    [SerializeField] PauseMenu pauseMenu;
     
 
     private void NewSceneLoaded()
@@ -16,8 +17,6 @@ public class StageCompleted : MonoBehaviour
             manager = enemiesInLevel.GetComponent<EnemyManager>();
         }
     }
-    
-    
 
     private void Update()
     {
@@ -52,6 +51,7 @@ public class StageCompleted : MonoBehaviour
     {
         if (enemiesInLevel != null)
         {
+            pauseMenu.enabled = true;
             manager.stageCompleted = false;
             
             Cursor.lockState = CursorLockMode.Locked;
@@ -66,8 +66,6 @@ public class StageCompleted : MonoBehaviour
             }
         
             manager.animatorManager.enabled = true;
-            manager.playerMovement.enabled = true;
-            manager.proyectileLogic.enabled = true;
         }
     }
     
@@ -77,6 +75,7 @@ public class StageCompleted : MonoBehaviour
         {
             if (manager.stageCompleted)
             {
+                pauseMenu.enabled = false;
                 Cursor.lockState = CursorLockMode.None;
             
                 Time.timeScale = 0;
@@ -89,8 +88,6 @@ public class StageCompleted : MonoBehaviour
                 }
         
                 manager.animatorManager.enabled = false;
-                manager.playerMovement.enabled = false;
-                manager.proyectileLogic.enabled = false;
             }
         }
     }

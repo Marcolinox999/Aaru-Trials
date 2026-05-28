@@ -10,18 +10,15 @@ public class PauseMenu : MonoBehaviour
     
     [SerializeField] GameObject pauseMenuUI;
     private GameObject player;
-    private PlayerMovementMIO playerMovement;
     private ProyectileLogic proyectileLogic;
     private AnimatorManager animatorManager;
     private GameObject[] canvas;
 
     public void Start()
     {
-        
+        canvas = GameObject.FindGameObjectsWithTag("Pause");
         player = GameObject.FindGameObjectWithTag("Player");
         canvas = GameObject.FindGameObjectsWithTag("Pause");
-        playerMovement = player.GetComponent<PlayerMovementMIO>();
-        proyectileLogic = player.GetComponent<ProyectileLogic>();
         animatorManager =  player.GetComponent<AnimatorManager>();
     }
 
@@ -48,8 +45,6 @@ public class PauseMenu : MonoBehaviour
         {
             canvas[i].SetActive(false);
         }
-        playerMovement.enabled = false;
-        proyectileLogic.enabled = false;
         animatorManager.enabled = false;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
@@ -62,8 +57,6 @@ public class PauseMenu : MonoBehaviour
         {
             canvas[i].SetActive(true);
         }
-        playerMovement.enabled = true;
-        proyectileLogic.enabled = true;
         animatorManager.enabled = true;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;

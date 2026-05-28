@@ -3108,6 +3108,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 192938508506353307, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      propertyPath: m_TagString
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970220410801710042, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      propertyPath: m_TagString
+      value: Pause
+      objectReference: {fileID: 0}
     - target: {fileID: 2142296327986448920, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_Name
       value: NEW Player
@@ -3151,6 +3159,26 @@ PrefabInstance:
     - target: {fileID: 2317806238297699839, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203338749538740302, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      propertyPath: m_TagString
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 5969708126530249339, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      propertyPath: m_TagString
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612458854695066744, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      propertyPath: m_TagString
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 6669061088179485656, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      propertyPath: m_TagString
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223939824395925474, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
+      propertyPath: m_TagString
+      value: Pause
       objectReference: {fileID: 0}
     - target: {fileID: 8593241167815565540, guid: 8020beda62f110f49947e6ea54d4f980, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4383,6 +4411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: --UI--
       objectReference: {fileID: 0}
+    - target: {fileID: 1985573176389042690, guid: baeaae2e4979495419023aac7be937f9, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1396422690}
     - target: {fileID: 8445757353785286972, guid: baeaae2e4979495419023aac7be937f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.98036
@@ -4568,6 +4600,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5216520479017541492, guid: 125f7efe8f91aff4abd37bd1d4e5970f, type: 3}
   m_PrefabInstance: {fileID: 1375659037}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1396422690 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6826734135275321216, guid: baeaae2e4979495419023aac7be937f9, type: 3}
+  m_PrefabInstance: {fileID: 1363837692}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9542a3b22cdfe49aaaa884849b3cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
 --- !u!1001 &1423172913
 PrefabInstance:
   m_ObjectHideFlags: 0
