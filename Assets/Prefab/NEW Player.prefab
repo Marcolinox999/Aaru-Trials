@@ -220,6 +220,7 @@ MonoBehaviour:
   desiredTime: 5
   healing: {fileID: 2782265564540374091, guid: fca0effa4240d7847a7d52d4eec21ff0, type: 3}
   animator: {fileID: 668108669199894210}
+  healKey: 120
   healSound:
   - {fileID: 8300000, guid: 627a83284affaf046989de0b1240078e, type: 3}
   - {fileID: 8300000, guid: d33b2896f25348944b7237e26f6935f6, type: 3}
@@ -665,12 +666,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
   life: 100
-  death: {fileID: 0}
   lifebar: {fileID: 3765323643892541400}
   _renderer: {fileID: 5846048960185187959}
   _materialDefault: {fileID: 0}
   _materialStun: {fileID: 2100000, guid: 03e30876fff35ce4193c7c8a3d1f91bd, type: 2}
   timeToStun: 0.3
+  Dead: 0
+  player: {fileID: 0}
+  animatorManager: {fileID: 0}
+  canvas: []
   score: 0
   hitSound:
   - {fileID: 8300000, guid: e36978c07927e1948b67d6315b23e01f, type: 3}
