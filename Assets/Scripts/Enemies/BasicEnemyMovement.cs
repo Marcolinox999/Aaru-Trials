@@ -30,13 +30,6 @@ public class BasicEnemyMovement : MonoBehaviour
       WaitForSeconds wait = new WaitForSeconds(speedOfUpdate);
       while (enabled)
       {
-          if (agent.enabled == false)
-          { 
-              new WaitForSeconds(5f);
-             if( Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 6f)) 
-                 agent.enabled = true;
-          }
-          
           if (agent.isActiveAndEnabled && agent.isOnNavMesh)
           {
               agent.SetDestination(target.transform.position);
