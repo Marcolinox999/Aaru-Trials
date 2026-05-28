@@ -10,16 +10,17 @@ using Random = UnityEngine.Random;
 public class StageCompleted : MonoBehaviour
 {
     private GameObject enemiesInLevel;
-    private EnemyManager manager;
+    public EnemyManager manager;
     
     [SerializeField] PauseMenu pauseMenu;
     [SerializeField] TMP_Text ability1;
     [SerializeField] TMP_Text  ability2;
 
-    private GameObject slot1;
-    private GameObject slot2;
+    public GameObject slot1;
+    public GameObject slot2;
 
     public bool swap;
+    public int abilityChoosen;
     
     public GameObject grappling;
     public GameObject kopesh;
@@ -36,6 +37,8 @@ public class StageCompleted : MonoBehaviour
 
     private bool abilitiesPicked;
     
+    private GameObject abilityheld;
+    
     private void NewSceneLoaded()
     {
         enemiesInLevel = GameObject.FindGameObjectWithTag("EnemyManager");
@@ -43,8 +46,9 @@ public class StageCompleted : MonoBehaviour
         {
             rnd = Random.Range(0, abilities.Length);
             rnd2 = Random.Range(0, abilities.Length);
-            while (rnd == rnd2)
+            while (rnd == rnd2 || abilities[rnd] == null || abilities[rnd2] == null)
             {
+                rnd = Random.Range(0, abilities.Length);
                 rnd2 = Random.Range(0, abilities.Length);
             }
             ability1.text = abilities[rnd].name;
@@ -75,19 +79,67 @@ public class StageCompleted : MonoBehaviour
         }
         
     }
+    private void AbilitySwap1()
+    {
+        if (abilityChoosen == 1)
+        {
+            abilityheld = slot1;
+            slot1 = abilities[rnd];
+            abilities[rnd] = abilityheld;
+            Unfreze();
+            SceneManager.LoadScene("MainHall");
+        }
+        else if (abilityChoosen == 2)
+        {
+            abilityheld = slot2;
+            slot2 = abilities[rnd2];
+            abilities[rnd2] = abilityheld;
+            Unfreze();
+            SceneManager.LoadScene("MainHall");
+        }
+      
+    }
+    private void AbilitySwap2()
+    {
+        if (abilityChoosen == 1)
+        {
+            abilityheld = slot1;
+            slot1 = abilities[rnd];
+            abilities[rnd] = abilityheld;
+            Unfreze();
+            SceneManager.LoadScene("MainHall");
+        }
+        else if (abilityChoosen == 2)
+        {
+            abilityheld = slot2;
+            slot2 = abilities[rnd2];
+            abilities[rnd2] = abilityheld;
+            Unfreze();
+            SceneManager.LoadScene("MainHall");
+        }
+      
+    }
 
     public void Ability_1()
     {
+        abilityChoosen = 1;
         Unfreze();
         AbilitiesRemaining1();
-        SceneManager.LoadScene("MainHall");
+        if (!swap)
+        {
+            SceneManager.LoadScene("MainHall");
+        }
     }
 
     public void Ability_2()
     {
+        abilityChoosen = 2;
         Unfreze();
         AbilitiesRemaining2();
-        SceneManager.LoadScene("MainHall");
+        if (!swap)
+        {
+            SceneManager.LoadScene("MainHall");
+        }
     }
 
     private void AbilitiesRemaining1()
@@ -96,11 +148,13 @@ public class StageCompleted : MonoBehaviour
         {
             slot1 = abilities[rnd];
             abilities[rnd].SetActive(true);
+            abilities[rnd] = null;
         }
         else if (slot2 == null)
         {
             slot2 = abilities[rnd];
             abilities[rnd].SetActive(true);
+            abilities[rnd] = null;
         }
         else
         {
@@ -113,11 +167,13 @@ public class StageCompleted : MonoBehaviour
         {
             slot1 = abilities[rnd2];
             abilities[rnd2].SetActive(true);
+            abilities[rnd2] = null;
         }
         else if (slot2 == null)
         {
             slot2 = abilities[rnd2];
             abilities[rnd2].SetActive(true);
+            abilities[rnd2] = null;
         }
         else
         {
