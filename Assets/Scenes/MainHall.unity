@@ -5402,6 +5402,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 879365782}
     - target: {fileID: 1985573176389042690, guid: baeaae2e4979495419023aac7be937f9, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1526028889}
+    - target: {fileID: 1985573176389042690, guid: baeaae2e4979495419023aac7be937f9, type: 3}
       propertyPath: zawardo
       value: 
       objectReference: {fileID: 907236831}
@@ -5437,6 +5441,10 @@ PrefabInstance:
       propertyPath: venomLauncher
       value: 
       objectReference: {fileID: 903831640}
+    - target: {fileID: 1985573176389042690, guid: baeaae2e4979495419023aac7be937f9, type: 3}
+      propertyPath: enemiesInLevel
+      value: 
+      objectReference: {fileID: 1526028886}
     - target: {fileID: 1985573176389042690, guid: baeaae2e4979495419023aac7be937f9, type: 3}
       propertyPath: abilities.Array.size
       value: 7
@@ -5703,6 +5711,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1480977098}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 256567735891481974, guid: baeaae2e4979495419023aac7be937f9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1526028889}
     - targetCorrespondingSourceObject: {fileID: 6505050204525784774, guid: baeaae2e4979495419023aac7be937f9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 619004150}
@@ -6528,6 +6539,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3906158537582329381, guid: b897b91def57a2940a0f0042d364c50d, type: 3}
   m_PrefabInstance: {fileID: 1524761677}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1526028886 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 256567735891481974, guid: baeaae2e4979495419023aac7be937f9, type: 3}
+  m_PrefabInstance: {fileID: 1363837692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1526028889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526028886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31659a8bbbd4d1540a8ce3615f92e58d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
+  ui_Complete: {fileID: 0}
+  player: {fileID: 0}
+  animatorManager: {fileID: 0}
+  canvas: []
+  stageCompleted: 0
 --- !u!114 &1538195883 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 717616926954599255, guid: baeaae2e4979495419023aac7be937f9, type: 3}

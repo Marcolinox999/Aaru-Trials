@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Net.Mime;
 using TMPro;
 using Unity.VisualScripting;
@@ -9,7 +11,7 @@ using Random = UnityEngine.Random;
 
 public class StageCompleted : MonoBehaviour
 {
-    private GameObject enemiesInLevel;
+    [SerializeField]  GameObject enemiesInLevel;
     public EnemyManager manager;
     
     [SerializeField] PauseMenu pauseMenu;
@@ -29,14 +31,13 @@ public class StageCompleted : MonoBehaviour
     public int rnd;
     public int rnd2;
 
-    private bool abilitiesPicked;
+    private bool abilitiesPicked = false;
     
     private GameObject abilityheld;
     
     private void NewSceneLoaded()
     {
-        enemiesInLevel = GameObject.FindGameObjectWithTag("EnemyManager");
-        if (enemiesInLevel != null)
+        if (enemiesInLevel != null && SceneManager.GetActiveScene().name != "MainHall")
         {
             rnd = Random.Range(0, abilities.Length);
             rnd2 = Random.Range(0, abilities.Length);
@@ -49,8 +50,6 @@ public class StageCompleted : MonoBehaviour
             ability2.text = abilities[rnd2].name;
             
             manager = enemiesInLevel.GetComponent<EnemyManager>();
-            
-            abilitiesPicked = true;
         }
     }
 
@@ -60,7 +59,6 @@ public class StageCompleted : MonoBehaviour
         {
             if (!abilitiesPicked)
             {
-                new WaitForSeconds(1f);
                 NewSceneLoaded();
             }
             
@@ -68,9 +66,14 @@ public class StageCompleted : MonoBehaviour
             {
                 if (manager.stageCompleted)
                 {
+                    Debug.Log("Stage Completed");
                     Freze();
                 }
             }
+        }
+        else
+        {
+            manager.stageCompleted = false;
         }
         
     }
@@ -91,12 +94,11 @@ public class StageCompleted : MonoBehaviour
     
     private void Unfreze()
     {
+        manager.stageCompleted = false;
         if (enemiesInLevel != null)
         {
-            
             abilitiesPicked = false;
             pauseMenu.enabled = true;
-            manager.stageCompleted = false;
             
             Cursor.lockState = CursorLockMode.Locked;
             
@@ -117,6 +119,7 @@ public class StageCompleted : MonoBehaviour
     {
         if (enemiesInLevel != null)
         {
+            abilitiesPicked = true;
             if (manager.stageCompleted)
             {
                 pauseMenu.enabled = false;

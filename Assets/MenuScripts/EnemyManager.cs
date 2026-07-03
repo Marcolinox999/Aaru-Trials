@@ -19,13 +19,22 @@ public class EnemyManager : MonoBehaviour
         animatorManager =  player.GetComponent<AnimatorManager>();
         
         ui_Complete = GameObject.FindGameObjectWithTag("LevelComplete");
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        activeEnemies.AddRange(enemies);
     }
 
     void Update()
     {
-        CheckEnemies();
+        if (SceneManager.GetActiveScene().name != "MainHall" && SceneManager.GetActiveScene().name != "Final_Boss")
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            activeEnemies.AddRange(enemies);
+            CheckEnemies();
+        }
+        else
+        {
+            activeEnemies.Clear();
+        }
+       
+        
     }
 
     void CheckEnemies()
@@ -33,9 +42,12 @@ public class EnemyManager : MonoBehaviour
         // If no enemies left, go back to main menu
         activeEnemies.RemoveAll(enemy => enemy == null);
 
-        if (activeEnemies.Count <= 0)
+        if (SceneManager.GetActiveScene().name != "MainHall" || SceneManager.GetActiveScene().name != "Final_Boss")
         {
-            stageCompleted = true;
+            if (activeEnemies.Count <= 0)
+            {
+                stageCompleted = true;
+            }
         }
     }
 }
